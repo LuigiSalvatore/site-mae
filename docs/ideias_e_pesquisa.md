@@ -26,7 +26,25 @@ Para alinhar com os requisitos pedidos, proponho estas melhorias sobre a base at
 2. **Seção "Investimento e Pagamento":**
    - Melhorar os cards para deixar em evidência as bandeiras aceitas e as possibilidades de parcelamento. Lading pages deAds adoram mostrar "12x de R$ X,XX".
 3. **Seção Testemunhos/Credibilidade:**
-   - Adicionar uma seção curta abaixo dos cursos para "O que dizem nossos alunos" (Social Proof é vital emAds).
+   - Adicionar depoimentos de ex-alunos/profissionais e selos de acreditação (UFRGS + Nilo Frantz).
+
+## 3. Plano de Ação Proposto
+
+1. **Grade / Cards de Cursos com Hover & Interação:**
+   - Exibir os módulos/disciplinas em cards visuais interativos.
+   - Na frente do card: imagem do professor/tópico, título da disciplina, carga horária e datas.
+   - Ao passar o mouse/clicar: revela detalhes da ementa, professores responsáveis e botão de ação.
+2. **Seção de Investimento e Opções de Pagamento:**
+   - Apresentar planos de pagamento (ex: 12x no cartão, PIX com desconto, boleto bancário).
+   - Inserir selos das bandeiras e modalidade de inscrição.
+3. **Cronograma com Prazos Claras:**
+   - Destacar data de início (13/10/2026), término das inscrições (15/01/2027) e tempo de imersão.
+
+## 4. Perguntas para Validação
+
+- Deseja que a grade de cursos/módulos exiba imagens individuais para cada professor ou avatares/recortes específicos por disciplina?
+- As formas de pagamento possuem valores/parcelamento pré-definidos (ex: valor total do investimento da pós-graduação)?
+- Prefere que os cards alternem o conteúdo ao passar o mouse (*hover*) ou ao clicar (abrir modal/drawer de detalhes)? seção curta abaixo dos cursos para "O que dizem nossos alunos" (Social Proof é vital emAds).
 4. **Bilinguismo contínuo:**
    - Manter todo o sistema traduzível para EN/PT como você validou.
 
