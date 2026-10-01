@@ -1,0 +1,145 @@
+:root{
+  --navy:#12386b; --blue:#4f7fc0; --lav:#a28dcb; --mist:#f2f4fb; --ink:#1e2a3d; --muted:#5c6880;
+  --magenta:#e6007e; --plum:#5f2158; --line:#dde2ef; --white:#fff;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:90px}
+body{font-family:'Figtree',system-ui,sans-serif;color:var(--ink);line-height:1.65;background:var(--white)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.container{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;color:var(--navy);line-height:1.15}
+h2{font-size:clamp(1.8rem,3.4vw,2.5rem);margin-bottom:1.5rem;max-width:22ch}
+h3.sub{font-size:1.3rem;margin:2.5rem 0 1rem}
+.section{padding:84px 0}.alt{background:var(--mist)}
+.section-sub{color:var(--muted);margin:-.8rem 0 2rem}
+
+.btn{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;padding:14px 26px;border-radius:999px;border:2px solid var(--navy);transition:background .2s}
+.btn:hover{background:var(--blue);border-color:var(--blue)}
+.btn-sm{padding:8px 18px;font-size:.9rem}
+.btn-ghost{background:transparent;color:var(--navy)}
+.btn-ghost:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+
+/* Banner UFRGS */
+.ufrgs-bar{background:#fff;border-bottom:1px solid var(--line)}
+.ufrgs-bar .container{display:flex;align-items:center;height:72px}
+.ufrgs-bar img{height:52px;width:auto}
+
+/* Navbar */
+.navbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-content{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:'Fraunces',serif;font-weight:600;font-size:.95rem;line-height:1.2;color:var(--navy)}
+.brand img{height:44px;width:auto}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-links a:not(.btn){text-decoration:none;font-weight:500;font-size:.93rem;color:var(--ink)}
+.nav-links a:not(.btn):hover{color:var(--blue)}
+.menu-btn{display:none;background:none;border:0;font-size:1.7rem;color:var(--navy);cursor:pointer}
+
+/* Hero / capa */
+.hero{background:linear-gradient(120deg,#fff 55%,#e9edf9);padding:56px 0 72px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.partner-cover{display:inline-flex;flex-direction:column;gap:8px;padding:14px 22px 16px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--magenta);border-radius:6px;margin-bottom:32px}
+.partner-cover span{font-size:.85rem;color:var(--muted)}
+.partner-cover img{height:44px;width:auto}
+.edition{color:var(--blue);font-weight:600;margin-bottom:.6rem}
+.hero h1{font-size:clamp(2.2rem,4.8vw,3.6rem);letter-spacing:-.01em;margin-bottom:1.2rem}
+.lead{font-size:1.15rem;color:var(--muted);max-width:52ch;margin-bottom:1.8rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.status{margin-top:1.4rem;font-weight:600;color:var(--plum)}
+.hero-logo img{width:100%;max-width:440px;margin:0 auto}
+
+/* Ficha do curso */
+.facts{background:var(--navy);color:#fff}
+.facts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+.facts-grid div{padding:26px 24px;border-bottom:1px solid rgba(255,255,255,.14)}
+.facts-grid div:not(:nth-child(3n)){border-right:1px solid rgba(255,255,255,.14)}
+.facts-grid div:nth-last-child(-n+3){border-bottom:0}
+.facts-grid strong{display:block;font-family:'Fraunces',serif;font-size:1.5rem;font-weight:600}
+.facts-grid span{color:#c9d3ea;font-size:.95rem}
+
+/* Objetivos */
+.general{background:var(--mist);border-left:5px solid var(--lav);padding:28px 32px;border-radius:6px;max-width:860px}
+.general h3{font-size:1.3rem;margin-bottom:.6rem}
+.specific{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.specific li{padding:20px 22px;border:1px solid var(--line);border-radius:8px;position:relative;padding-left:48px}
+.specific li::before{content:"";position:absolute;left:22px;top:28px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--lav))}
+
+/* Imersão prática */
+.practice{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.practice-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:56px;align-items:center}
+.practice h2{max-width:20ch}
+.practice p{margin-bottom:1rem;max-width:60ch}
+.practice-logo{border-left:5px solid var(--magenta);padding:32px;background:var(--mist);border-radius:6px}
+
+/* Disciplinas */
+.subjects{list-style:none;counter-reset:d;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 24px}
+.subjects li{counter-increment:d;display:flex;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);font-weight:500}
+.subjects li::before{content:counter(d);font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;color:var(--lav);min-width:1.8rem}
+.subjects li.practical{grid-column:1/-1;background:var(--mist);padding:18px 20px;border-bottom:0;border-radius:6px;color:var(--navy);font-weight:600}
+
+/* Equipe */
+.coord{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:760px}
+.coord div{background:var(--navy);color:#fff;padding:22px 26px;border-radius:8px}
+.coord span{display:block;color:#c9d3ea;font-size:.9rem}
+.coord strong{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:600}
+.team{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.team li{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 16px}
+.team strong{display:block;line-height:1.3;font-weight:600}
+.team li div span{font-size:.88rem;color:var(--muted)}
+.avatar{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--lav));color:#fff;font-weight:700;font-size:.9rem}
+
+/* Investimento */
+.price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:720px}
+.price-card{padding:32px;border:1px solid var(--line);border-radius:10px}
+.price-card.main{background:var(--navy);border-color:var(--navy);color:#fff}
+.price-card span{display:block;color:var(--muted)}
+.price-card.main span{color:#c9d3ea}
+.price-card strong{font-family:'Fraunces',serif;font-size:clamp(1.9rem,3.6vw,2.6rem);color:inherit}
+.price-card:not(.main) strong{color:var(--navy)}
+
+/* Cronograma */
+.timeline{list-style:none;position:relative;max-width:640px;margin-bottom:2.5rem;padding-left:34px;border-left:3px solid var(--lav)}
+.timeline li{position:relative;padding:0 0 28px}
+.timeline li::before{content:"";position:absolute;left:-44px;top:6px;width:15px;height:15px;border-radius:50%;background:#fff;border:4px solid var(--blue)}
+.timeline time{display:block;font-family:'Fraunces',serif;font-size:1.35rem;font-weight:600;color:var(--navy)}
+.timeline span{color:var(--muted)}
+.format{max-width:760px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:24px 28px}
+.format p+p{margin-top:.8rem}
+
+/* Contato */
+.contact{background:linear-gradient(120deg,var(--navy),#2b4f93);color:#fff}
+.contact h2{color:#fff}
+.contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+.contact p{margin-bottom:1.5rem;color:#dbe3f5}
+.contact .btn{background:#fff;color:var(--navy);border-color:#fff}
+.contact .btn:hover{background:var(--lav);border-color:var(--lav);color:#fff}
+dl{display:grid;gap:4px}
+dt{color:#c9d3ea;font-size:.9rem;margin-top:12px}
+dd{font-weight:600}
+dd a{text-decoration:none}dd a:hover{text-decoration:underline}
+
+/* Rodapé */
+footer{background:#fff;padding:40px 0;border-top:1px solid var(--line)}
+.footer-content{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.f-emblem{height:64px;width:auto}
+footer p{flex:1;min-width:240px;color:var(--muted);font-size:.9rem}
+.f-logos{display:flex;align-items:center;gap:24px}
+.f-logos img{height:36px;width:auto}
+
+/* Responsivo */
+@media(max-width:900px){
+  .hero-grid,.practice-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-logo{order:-1}.hero-logo img{max-width:260px}
+  .facts-grid,.team{grid-template-columns:repeat(2,1fr)}
+  .facts-grid div{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
+  .specific,.subjects,.coord{grid-template-columns:1fr}
+  .menu-btn{display:block}
+  .nav-links{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;flex-direction:column;align-items:flex-start;padding:20px 24px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+}
+@media(max-width:560px){
+  .section{padding:60px 0}.facts-grid,.team,.price-grid{grid-template-columns:1fr}
+  .ufrgs-bar img{height:42px}.brand span{font-size:.8rem}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
