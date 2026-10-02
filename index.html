@@ -20,9 +20,14 @@
   <div class="container nav-content">
     <a href="#inicio" class="brand"><img src="assets/logo-curso-emblema.png" alt=""><span>Reprodução Assistida<br>e Embriologia Humanas</span></a>
     <nav id="menu" class="nav-links">
-      <a href="#curso">O curso</a><a href="#objetivos">Objetivos</a><a href="#pratica">Imersão prática</a>
-      <a href="#disciplinas">Disciplinas</a><a href="#equipe">Equipe</a><a href="#investimento">Investimento</a>
-      <a href="#cronograma">Cronograma</a><a href="#contato" class="btn btn-sm">Inscreva-se</a>
+      <a href="#curso">O curso</a>
+      <a href="#cursos">Cursos & Módulos</a>
+      <a href="#pratica">Imersão prática</a>
+      <a href="#equipe">Equipe</a>
+      <a href="#investimento">Investimento</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#cronograma">Cronograma</a>
+      <a href="#contato" class="btn btn-sm">Inscreva-se</a>
     </nav>
     <button class="menu-btn" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">☰</button>
   </div>
@@ -72,6 +77,24 @@
   </div>
 </section>
 
+<section id="cursos" class="section alt">
+  <div class="container">
+    <div class="section-header">
+      <h2>Cursos & Módulos da Formação</h2>
+      <p class="section-sub">Cards interativos: Passe o mouse ou clique no card para ver os professores responsáveis, a ementa detalhada e as datas de início e término.</p>
+    </div>
+
+    <div class="course-tabs">
+      <button class="tab-btn active" data-filter="all">Todos os Módulos</button>
+      <button class="tab-btn" data-filter="ead">EaD Síncrono</button>
+      <button class="tab-btn" data-filter="pratica">EaD + Prática</button>
+      <button class="tab-btn" data-filter="imersao">Imersão Presencial</button>
+    </div>
+
+    <div id="course-grid" class="course-grid"></div>
+  </div>
+</section>
+
 <section id="pratica" class="section practice">
   <div class="container practice-grid">
     <div>
@@ -85,8 +108,8 @@
 
 <section id="disciplinas" class="section">
   <div class="container">
-    <h2>Estrutura acadêmica</h2>
-    <p class="section-sub">13 disciplinas ao longo de 18 meses.</p>
+    <h2>Estrutura acadêmica completa</h2>
+    <p class="section-sub">13 disciplinas teóricas e práticas organizadas ao longo de 18 meses (390 horas).</p>
     <ol id="subjects" class="subjects"></ol>
   </div>
 </section>
@@ -107,11 +130,44 @@
 
 <section id="investimento" class="section">
   <div class="container">
-    <h2>Investimento</h2>
+    <h2>Investimento & Formas de Pagamento</h2>
+    <p class="section-sub">Valores transparentes e facilitados com selo de certificação UFRGS + Nilo Frantz.</p>
+    
     <div class="price-grid">
-      <div class="price-card"><span>Matrícula</span><strong>R$ 400,00</strong></div>
-      <div class="price-card main"><span>15 mensalidades de</span><strong>R$ 800,00</strong></div>
+      <div class="price-card">
+        <span class="price-badge">Taxa de Inscrição / Matrícula</span>
+        <strong>R$ 400,00</strong>
+        <p class="price-detail">Pagamento no ato da confirmação de vaga</p>
+      </div>
+      <div class="price-card main">
+        <span class="price-badge highlight">Plano Mensal Facilitado</span>
+        <strong>15x R$ 800,00</strong>
+        <p class="price-detail">Parcelamento em 15 mensalidades fixas sem juros no boleto ou cartão</p>
+      </div>
+      <div class="price-card pix-card">
+        <span class="price-badge pix-badge">⚡ 10% Desconto à Vista</span>
+        <strong>R$ 11.160,00</strong>
+        <p class="price-detail">Pagamento único no PIX com aprovação imediata (Economia de R$ 1.240,00)</p>
+      </div>
     </div>
+
+    <div class="payment-methods-box">
+      <h3>Formas de Pagamento Aceitas:</h3>
+      <div class="payment-badges-row">
+        <div class="pay-badge"><span class="pay-icon">💳</span> Cartão de Crédito (até 12x)</div>
+        <div class="pay-badge"><span class="pay-icon">⚡</span> PIX (10% de desconto)</div>
+        <div class="pay-badge"><span class="pay-icon">📄</span> Boleto Bancário</div>
+        <div class="pay-badge"><span class="pay-icon">📜</span> Certificado Oficial UFRGS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="depoimentos" class="section alt">
+  <div class="container">
+    <h2>O que dizem os profissionais e alunos</h2>
+    <p class="section-sub">Depoimentos de quem transformou a carreira em Reprodução Assistida com imersão prática.</p>
+    <div id="testimonials-grid" class="testimonials-grid"></div>
   </div>
 </section>
 
