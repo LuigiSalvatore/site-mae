@@ -175,12 +175,12 @@ const teamUfrgs = [
 
 const teamExt = [
   ["Daiane Pagliarin", "Mestre · Nilo Frantz"],
-  ["Gabriela Mamede Andrade", "Doutora"],
+  ["Gabriela Mamede Andrade", "Doutora · Nilo Frantz"],
   ["Marcelo Ferreira", "Mestre · Nilo Frantz"],
   ["Marcos Iuri Roos Kulmann", "Doutor · Nilo Frantz"],
-  ["Maria Teresa Vieira Sanseverino", "Doutora"],
-  ["Norma Pagnoncelli Oliveira", "Mestre"],
-  ["Simone Mattiello", "Especialista"]
+  ["Maria Teresa Vieira Sanseverino", "Doutora · HCPA"],
+  ["Norma Pagnoncelli Oliveira", "Mestre · Nilo Frantz"],
+  ["Simone Mattiello", "Especialista · Nilo Frantz"]
 ];
 
 const testimonials = [
@@ -297,7 +297,10 @@ function renderCourseCards(filter = "all") {
         <!-- Back of Card (Hover / Click Detail) -->
         <div class="card-back">
           <div class="card-back-header">
-            <h4>${c.title}</h4>
+            <div class="card-back-header-top">
+              <h4>${c.title}</h4>
+              <button type="button" class="btn-card-close" aria-label="Fechar detalhes" title="Voltar ao resumo">✕</button>
+            </div>
             <span class="back-dates">📅 ${c.startDate} até ${c.endDate}</span>
           </div>
 
@@ -329,21 +332,52 @@ function renderCourseCards(filter = "all") {
     </div>
   `).join("");
 
-  // Add click to flip capability for touch & keyboard users
+  // Attach card interaction events (click, hover-reset, keyboard, close)
   document.querySelectorAll(".course-card").forEach(card => {
+    // Click toggle or close
     card.addEventListener("click", (e) => {
-      if (e.target.tagName !== "A") {
+      if (e.target.closest(".btn-card-close")) {
+        e.stopPropagation();
+        card.classList.remove("flipped");
+        return;
+      }
+      if (e.target.tagName !== "A" && !e.target.closest("a")) {
         card.classList.toggle("flipped");
       }
     });
+
+    // Reset interaction state on mouse leave
+    card.addEventListener("mouseleave", () => {
+      card.classList.remove("flipped");
+    });
+
+    // Keyboard support
     card.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        card.classList.toggle("flipped");
+        if (e.target.tagName !== "A" && !e.target.closest("a")) {
+          e.preventDefault();
+          card.classList.toggle("flipped");
+        }
+      } else if (e.key === "Escape") {
+        card.classList.remove("flipped");
+      }
+    });
+
+    // Reset when keyboard focus leaves card
+    card.addEventListener("focusout", (e) => {
+      if (!card.contains(e.relatedTarget)) {
+        card.classList.remove("flipped");
       }
     });
   });
 }
+
+// Global click outside listener to unflip any open cards
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".course-card")) {
+    document.querySelectorAll(".course-card.flipped").forEach(c => c.classList.remove("flipped"));
+  }
+});
 
 // Filter tabs
 document.querySelectorAll(".tab-btn").forEach(btn => {
@@ -356,12 +390,17 @@ document.querySelectorAll(".tab-btn").forEach(btn => {
 
 // Mobile menu toggle
 const menuBtn = document.querySelector(".menu-btn");
-const navLinks = document.querySelector(".nav-links");
+const navLinks = $("menu");
 if (menuBtn && navLinks) {
   menuBtn.addEventListener("click", () => {
-    const expanded = menuBtn.getAttribute("aria-expanded") === "true";
-    menuBtn.setAttribute("aria-expanded", !expanded);
-    navLinks.classList.toggle("open");
+    const isOpen = navLinks.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+  navLinks.addEventListener("click", e => {
+    if (e.target.tagName === "A") {
+      navLinks.classList.remove("open");
+      menuBtn.setAttribute("aria-expanded", "false");
+    }
   });
 }
 
@@ -373,14 +412,9 @@ if (menuBtn && navLinks) {
   if (statusEl) {
     statusEl.textContent =
       now < open ? `Inscrições abrem em ${days} ${days === 1 ? "dia" : "dias"} (em 13/10/2026).` :
-      now <= close ? "Inscrições abertas até 15/01/2027." : "Período de inscrições encerrado.";
+        now <= close ? "Inscrições abertas até 15/01/2027." : "Período de inscrições encerrado.";
   }
 })();
 
 // Initial render
 renderCourseCards();
-
-/* Menu mobile */
-const btn = document.querySelector(".menu-btn"), menu = $("menu");
-btn.addEventListener("click", () => btn.setAttribute("aria-expanded", menu.classList.toggle("open")));
-menu.addEventListener("click", e => { if (e.target.tagName === "A") { menu.classList.remove("open"); btn.setAttribute("aria-expanded", "false"); } });
