@@ -90,7 +90,8 @@ h3.sub{font-size:1.3rem;margin:2.5rem 0 1rem}
 .avatar{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--blue),var(--lav));color:#fff;font-weight:700;font-size:.9rem}
 
 /* Investimento */
-.price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;max-width:720px}
+#investimento h2{max-width:none;white-space:nowrap}
+.price-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;width:100%;max-width:none;align-items:stretch}
 .price-card{padding:32px;border:1px solid var(--line);border-radius:10px}
 .price-card.main{background:var(--navy);border-color:var(--navy);color:#fff}
 .price-card span{display:block;color:var(--muted)}
@@ -126,14 +127,15 @@ dd a{text-decoration:none}dd a:hover{text-decoration:underline}
 .tab-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
 
 /* Grid e Flip Cards de Cursos */
-.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:24px;perspective:1000px}
-.course-card{height:440px;cursor:pointer;outline:none}
-.card-inner{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(0.4, 0, 0.2, 1);transform-style:preserve-3d;border-radius:14px;box-shadow:0 6px 20px rgba(18,56,107,0.08)}
+.course-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:24px;perspective:1000px;align-items:start;isolation:isolate}
+.course-card{position:relative;height:440px;min-width:0;cursor:pointer;outline:none;z-index:1}
+.course-card:hover,.course-card.flipped,.course-card:focus-visible{z-index:10}
+.card-inner{position:relative;width:100%;height:100%;transition:transform .7s cubic-bezier(0.4, 0, 0.2, 1);transform-style:preserve-3d;transform-origin:center center;border-radius:14px;box-shadow:0 6px 20px rgba(18,56,107,0.08);will-change:transform}
 .course-card:hover .card-inner,
 .course-card.flipped .card-inner,
 .course-card:focus-visible .card-inner{transform:rotateY(180deg)}
 
-.card-front, .card-back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
+.card-front, .card-back{position:absolute;inset:0;width:auto;height:auto;backface-visibility:hidden;border-radius:14px;padding:24px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden}
 
 /* Frente do Card */
 .card-front{color:#fff;position:relative}
@@ -217,6 +219,7 @@ footer p{flex:1;min-width:240px;color:var(--muted);font-size:.9rem}
 /* Responsivo */
 @media(max-width:900px){
   .hero-grid,.practice-grid,.contact-grid{grid-template-columns:1fr}
+  .price-grid{grid-template-columns:1fr}
   .hero-logo{order:-1}.hero-logo img{max-width:260px}
   .facts-grid,.team{grid-template-columns:repeat(2,1fr)}
   .facts-grid div{border-right:0!important;border-bottom:1px solid rgba(255,255,255,.14)!important}
@@ -226,7 +229,8 @@ footer p{flex:1;min-width:240px;color:var(--muted);font-size:.9rem}
   .nav-links.open{display:flex}
 }
 @media(max-width:560px){
-  .section{padding:60px 0}.facts-grid,.team,.price-grid{grid-template-columns:1fr}
+  .section{padding:60px 0}.facts-grid,.team{grid-template-columns:1fr}
+  #investimento h2{white-space:normal}
   .ufrgs-bar img{height:42px}.brand span{font-size:.8rem}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
