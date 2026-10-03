@@ -12,7 +12,7 @@ const courseModules = [
     gradient: "linear-gradient(135deg, #12386b, #4f7fc0)",
     bgIcon: "🧬",
     teachers: [
-      { name: "Drª. Adriana Bos-Mikich", title: "Doutora · UFRGS", initials: "AB" },
+      { name: "Drª. Adriana Bos Mikich", title: "Doutora · UFRGS", initials: "AB" },
       { name: "Dr. Eduardo Chiela", title: "Doutor · UFRGS", initials: "EC" }
     ],
     topics: [
@@ -33,7 +33,7 @@ const courseModules = [
     gradient: "linear-gradient(135deg, #5f2158, #e6007e)",
     bgIcon: "🔬",
     teachers: [
-      { name: "Drª. Paula Rigon Soster", title: "Doutora · UFRGS", initials: "PS" },
+      { name: "Drª. Paula Rigon da Luz Soster", title: "Doutora · UFRGS", initials: "PS" },
       { name: "Msc. Daiane Pagliarin", title: "Mestre · Nilo Frantz", initials: "DP" }
     ],
     topics: [
@@ -54,7 +54,7 @@ const courseModules = [
     gradient: "linear-gradient(135deg, #0e4b68, #2a9d8f)",
     bgIcon: "🧫",
     teachers: [
-      { name: "Dr. Alexandre Duarte", title: "Doutor · UFRGS", initials: "AD" },
+      { name: "Dr. Alexandre Tavares Duarte", title: "Doutor · UFRGS", initials: "AD" },
       { name: "Msc. Marcelo Ferreira", title: "Mestre · Nilo Frantz", initials: "MF" }
     ],
     topics: [
@@ -97,7 +97,7 @@ const courseModules = [
     bgIcon: "❄️",
     teachers: [
       { name: "Drª. Ana Helena da Rosa Paz", title: "Doutora · UFRGS", initials: "AP" },
-      { name: "Dr. Marcos Iuri Kulmann", title: "Doutor · Nilo Frantz", initials: "MK" }
+      { name: "Dr. Marcos Iuri Roos Kulmann", title: "Doutor · Nilo Frantz", initials: "MK" }
     ],
     topics: [
       "Física da criopreservação: Congelamento lento vs. Vitrificação",
@@ -117,8 +117,8 @@ const courseModules = [
     gradient: "linear-gradient(135deg, #12386b, #e6007e)",
     bgIcon: "🏥",
     teachers: [
-      { name: "Equipe Clínica Nilo Frantz", title: "Especialistas RHA", initials: "NF" },
-      { name: "Drª. Adriana Bos-Mikich", title: "Coordenadora UFRGS", initials: "AB" }
+      { name: "Drª. Adriana Bos Mikich", title: "Coordenadora UFRGS", initials: "AB" },
+      { name: "Esp. Simone Mattiello", title: "Especialista · Nilo Frantz", initials: "SM" }
     ],
     topics: [
       "Vivência real de rotina clínica da consulta inicial ao término do ciclo",
@@ -130,12 +130,11 @@ const courseModules = [
 ];
 
 const specific = [
-  "Preparar profissionais graduados nas áreas da saúde e biológicas para um mercado de trabalho em franca expansão: a reprodução humana assistida (RHA);",
-  "Expor a relevância e a relação entre o conhecimento teórico e as práticas clínicas e laboratoriais, criando uma atitude crítica e capacitada;",
-  "Incentivar e habilitar os profissionais a buscar conhecimento baseado em rigorosos critérios científicos para elaborar propostas de pesquisa;",
-  "Proporcionar a oportunidade única de vivenciar a rotina de uma clínica de RHA (Nilo Frantz), desde a consulta inicial ao término do ciclo;",
-  "Oportunizar a observação prática de preparo seminal, fertilização in vitro (FIV), manipulação de oócitos, cultivo embrionário e vitrificação;",
-  "Favorecer o contato direto com renomados especialistas e pesquisadores em RHA, construindo uma valiosa rede de contatos para o mercado."
+  "Preparar profissionais graduados nas áreas da saúde e biológicas para um mercado de trabalho cada vez mais competitivo e em franca expansão: a reprodução humana assistida;",
+  "Expor a relevância e a relação entre o conhecimento teórico e as práticas clínicas e laboratoriais, de forma a criar uma atitude crítica e capacitada no profissional, capaz de contribuir efetivamente nas tomadas de decisões;",
+  "Incentivar e habilitar os profissionais a buscar conhecimento baseado em rigorosos critérios científicos, de forma a capacitá-los a elaborar propostas de pesquisa e manuscritos relacionados a seus interesses específicos, dentre os inúmeros tópicos da reprodução humana assistida;",
+  "Proporcionar a oportunidade única de vivenciar a rotina de uma clínica de RHA, desde a entrevista inicial com os pacientes, até o final de um ciclo de RHA, através do acompanhamento presencial em atividades clínicas e laboratoriais;",
+  "Oportunizar a observação de atividades laboratoriais práticas de preparo de material seminal para exame de rotina para emprego nas diferentes técnicas de inseminação/fertilização."
 ];
 
 const subjects = [
@@ -145,13 +144,13 @@ const subjects = [
   "Embriologia Aplicada à Reprodução",
   "Genética Aplicada à Reprodução",
   "Farmacologia na Infertilidade",
-  "Imunologia da Reprodução",
-  "Microbiologia Aplicada à Reprodução",
-  "Andrologia Laboratorial",
-  "Tecnologias de Reprodução Assistida",
-  "Laboratório de RHA: Manipulação e Cultivo Embrionário",
-  "Criopreservação de Gametas e Embriões",
-  "Atividade Prática de Observação (Clínica Nilo Frantz)"
+  "Exames de Imagem Aplicados à Reprodução Humana Assistida",
+  "Preservação da Fertilidade",
+  "Reprodução Humana Assistida voltada à população LGBTQIAPN+",
+  "Ética e Legislação em Reprodução Humana Assistida",
+  "Administração e Gerenciamento de Clínicas de Reprodução Humana Assistida",
+  "Metodologia da Pesquisa e TCC",
+  "Atividade Prática de Observação"
 ];
 
 const teamUfrgs = [
@@ -160,21 +159,28 @@ const teamUfrgs = [
   ["Alexandre Tavares Duarte de Oliveira", "Doutor"],
   ["Ana Helena da Rosa Paz", "Doutora"],
   ["Charles Francisco Ferreira", "Doutor"],
+  ["Dirce Maria Santin", "Doutora"],
   ["Eduardo Cambruzzi", "Doutor"],
   ["Eduardo Cremonese Filippi Chiela", "Doutor"],
   ["Eloisa da Silveira Loss", "Doutora"],
   ["Henrique Zaquia Leão", "Doutor"],
+  ["João Henrique Correa Kanan", "Doutor"],
   ["José Artur Bogo Chies", "Doutor"],
+  ["Lisiane Bernardi", "Doutora"],
   ["Lucas Rosa Fraga", "Doutor"],
-  ["Taís Malysz", "Doutora"]
+  ["Rossana Colla Solette", "Doutora"],
+  ["Taís Malysz", "Doutora"],
+  ["Tatiana Luft", "Doutora"]
 ];
 
 const teamExt = [
   ["Daiane Pagliarin", "Mestre · Nilo Frantz"],
+  ["Gabriela Mamede Andrade", "Doutora"],
   ["Marcelo Ferreira", "Mestre · Nilo Frantz"],
   ["Marcos Iuri Roos Kulmann", "Doutor · Nilo Frantz"],
-  ["Maria Teresa Vieira Sanseverino", "Doutora · Genética"],
-  ["Simone Mattiello", "Especialista · Embriologia"]
+  ["Maria Teresa Vieira Sanseverino", "Doutora"],
+  ["Norma Pagnoncelli Oliveira", "Mestre"],
+  ["Simone Mattiello", "Especialista"]
 ];
 
 const testimonials = [
@@ -373,53 +379,6 @@ if (menuBtn && navLinks) {
 
 // Initial render
 renderCourseCards();
-
-const subjects = [
-  "Origem e Anatomia dos Sistemas Reprodutores Masculino e Feminino",
-  "Histologia dos Sistemas Reprodutores Masculino e Feminino",
-  "Fisiologia da Reprodução",
-  "Embriologia Aplicada à Reprodução",
-  "Genética Aplicada à Reprodução",
-  "Farmacologia na Infertilidade",
-  "Exames de Imagem Aplicados à Reprodução Humana Assistida",
-  "Preservação da Fertilidade",
-  "Reprodução Humana Assistida voltada à população LGBTQIAPN+",
-  "Ética e Legislação em Reprodução Humana Assistida",
-  "Administração e Gerenciamento de Clínicas de Reprodução Humana Assistida",
-  "Metodologia da Pesquisa e TCC",
-  "Atividade Prática de Observação"
-];
-const teamUfrgs = [
-  ["Adriana Bos Mikich","Doutora"],["Alexandre Tavares Duarte de Oliveira","Doutor"],["Ana Helena da Rosa Paz","Doutora"],
-  ["Charles Francisco Ferreira","Doutor"],["Eduardo Cambruzzi","Doutor"],["Eduardo Cremonese Filippi Chiela","Doutor"],
-  ["Eloisa da Silveira Loss","Doutora"],["Henrique Zaquia Leão","Doutor"],["João Henrique Correa Kanan","Doutor"],
-  ["José Artur Bogo Chies","Doutor"],["Lisiane Bernardi","Doutor"],["Dirce Maria Santin","Doutora"],
-  ["Lucas Rosa Fraga","Doutor"],["Paula Rigon da Luz Soster","Doutora"],["Rossana Colla Solette","Doutora"],
-  ["Taís Malysz","Doutora"],["Tatiana Luft","Doutora"]
-];
-const teamExt = [
-  ["Daiane Pagliarin","Mestre"],["Gabriela Mamede Andrade","Doutora"],["Marcelo Ferreira","Mestre"],
-  ["Marcos Iuri Roos Kulmann","Doutor"],["Maria Teresa Vieira Sanseverino","Doutora"],
-  ["Norma Pagnoncelli Oliveira","Mestre"],["Simone Mattiello","Especialista"]
-];
-
-const $ = id => document.getElementById(id);
-$("specific").innerHTML = specific.map(t => `<li>${t}</li>`).join("");
-$("subjects").innerHTML = subjects.map((t, i) =>
-  `<li${i === subjects.length - 1 ? ' class="practical"' : ""}>${t}</li>`).join("");
-const person = ([n, t]) => `<li><span class="avatar">${n.split(" ").filter(w => w[0] === w[0].toUpperCase())
-  .map(w => w[0]).slice(0, 2).join("")}</span><div><strong>${n}</strong><span>${t}</span></div></li>`;
-$("team-ufrgs").innerHTML = teamUfrgs.map(person).join("");
-$("team-ext").innerHTML = teamExt.map(person).join("");
-
-/* Situação das inscrições (13/10/2026 a 15/01/2027) */
-(() => {
-  const open = new Date(2026, 9, 13), close = new Date(2027, 0, 15, 23, 59, 59), now = new Date();
-  const days = Math.ceil((open - now) / 864e5);
-  $("status").textContent =
-    now < open ? `Inscrições abrem em ${days} ${days === 1 ? "dia" : "dias"}, em 13/10/2026.` :
-    now <= close ? "Inscrições abertas até 15/01/2027." : "Período de inscrições encerrado.";
-})();
 
 /* Menu mobile */
 const btn = document.querySelector(".menu-btn"), menu = $("menu");
