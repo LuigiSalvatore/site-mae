@@ -4,7 +4,7 @@ Updated 9 October 2026 from `new-documents/Informações sobre as disciplinas.do
 
 All 13 disciplines now follow the document's order, titles, hours, classifications, responsible/collaborating teachers, súmulas, and complete program content. Their hours total 390: eight theoretical disciplines, four theoretical/practical disciplines, and one practical discipline. The document does not provide an hour-by-hour theory/practice split for mixed disciplines.
 
-Removed unsupported degree prefixes, teacher affiliations, synchronous/distance/institution labels, and previous invented syllabus topics from the discipline cards. Signup actions were removed from the card details, leaving the existing homepage signup navigation intact pending the separate registration-page plan.
+Removed unsupported degree prefixes, teacher affiliations, synchronous/distance/institution labels, and previous invented syllabus topics from the discipline cards. Signup actions were removed from the card details. The homepage signup navigation now leads to `inscricao.html`, which offers the two test registration paths.
 
 The detailed card face now scrolls as a whole so longer programs and faculty lists remain accessible. Filters use only the classifications supplied in the document.
 

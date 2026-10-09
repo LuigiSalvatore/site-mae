@@ -1,0 +1,33 @@
+/* Registration-specific styles; the course site's existing styles are preserved. */
+.registration-header{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-top:24px;padding-bottom:24px}
+.registration-header>a:last-child,.registration-nav a{color:var(--navy);font-weight:600;text-underline-offset:4px}
+.registration-main{padding-top:24px;padding-bottom:80px;max-width:1000px}
+.registration-nav{display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:24px}
+.test-notice{padding:16px 20px;border:1px solid var(--lav);border-left:4px solid var(--plum);background:var(--mist);border-radius:8px;margin-bottom:36px;overflow-wrap:anywhere}
+.registration-page h1{font-size:clamp(2rem,5vw,3.2rem);max-width:24ch;margin-bottom:20px}
+.registration-lead{font-size:1.15rem;color:var(--muted);margin-bottom:32px;max-width:65ch}
+.registration-options{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.registration-option{padding:30px;background:var(--mist);border:1px solid var(--line);border-radius:16px;display:flex;flex-direction:column;align-items:flex-start;gap:16px}
+.registration-option h2{font-size:1.8rem;margin:0}
+.registration-option .btn{margin-top:auto}
+.option-number{font-weight:700;color:var(--plum);font-size:.85rem}
+.registration-note{color:var(--muted);font-size:.92rem;margin:16px 0}
+.registration-steps{padding-left:28px}
+.registration-steps>li{padding:12px 0 24px 12px}
+.registration-steps h2{font-size:1.5rem;margin-bottom:12px}
+.registration-steps p{margin-bottom:16px}
+.registration-page fieldset{min-width:0;border:1px solid var(--line);border-radius:12px;padding:24px;margin:32px 0}
+.registration-page legend{padding:0 10px;font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:1.25rem;color:var(--navy)}
+.registration-fields{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.registration-fields label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:.92rem}
+.registration-fields input{min-width:0;width:100%;padding:12px;border:1px solid #9ca9bf;border-radius:6px;font:inherit;background:#fff;color:var(--ink)}
+.registration-checks{display:grid;gap:14px;margin:20px 0}
+.registration-checks label{display:flex;align-items:flex-start;gap:10px}
+.registration-checks input{margin-top:6px;flex-shrink:0;accent-color:var(--navy)}
+.registration-page button{font-family:inherit;cursor:pointer}
+.registration-actions{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}
+.application-review{margin-top:32px;border:1px solid var(--line);border-radius:12px;padding:24px;background:var(--mist)}
+.application-review pre{white-space:pre-wrap;overflow-wrap:anywhere;font: .95rem/1.6 system-ui,sans-serif;background:#fff;padding:20px;border-radius:8px;max-height:500px;overflow:auto}
+.application-review h3{margin:24px 0 12px}
+.registration-page [hidden]{display:none!important}
+@media(max-width:650px){.registration-options,.registration-fields{grid-template-columns:1fr}.registration-header{align-items:flex-start;flex-direction:column}.registration-page fieldset{padding:16px}.registration-option{padding:24px}.registration-page .btn{max-width:100%;white-space:normal}.application-review{padding:16px}}

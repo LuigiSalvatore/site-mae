@@ -1,7 +1,9 @@
 # Proposed inscrição page
 
-Status: plan only — awaiting approval before implementation.
+Status: both paths implemented as a browser-only test prototype.
 Prepared: 9 October 2026.
+
+The original proposal below is retained for production planning. The implemented test behavior and remaining limitations are recorded in “Implemented test paths” at the end.
 
 ## Purpose and scope
 
@@ -82,4 +84,18 @@ The discipline cards no longer contain signup buttons after their source-only co
 
 Approve either the recommended instructions/download page or a directly submitted online form. For the recommended version, confirm the receiving channel, required supporting documents, and registration instructions. For an online form, resolve the decisions above before implementation.
 
-No registration page or signup-link changes have been implemented as part of this planning step.
+Both paths and homepage signup links are now implemented for testing. See the implementation notes below.
+
+
+## Implemented test paths
+
+- `../inscricao.html`: choice between the two registration paths.
+- `../inscricao-online.html`: all source form fields, in-browser review, and download of a completed printable HTML application.
+- `../inscricao-instrucoes.html`: original DOCX download and manual email instructions.
+- Both paths use `ludpher.s@gmail.com` for tests. No message is sent automatically. The user must attach the application and send it from their own email client.
+- The form requires only name and personal email to prepare a test file. This is a prototype choice, not an official requirement. The source checkboxes remain checkboxes pending confirmation of the category rule.
+- The original declaration and signature line are preserved; the prototype does not claim to provide an approved electronic signature.
+- The test pages are labeled as tests and use `noindex`. They remain usable outside the official application dates for testing.
+- No applicant data is saved by the site, included in email URLs, or transmitted to a backend.
+
+An automated online submission path still requires an approved backend/service and confirmed application, signature, and data handling rules before production use. The earlier planning sections describe the production decisions that remain open.
