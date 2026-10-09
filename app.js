@@ -1,130 +1,992 @@
 /* Mockup Landing Page BioCursos - RHA UFRGS */
 
-const courseModules = [
+// Source: new-documents/Informações sobre as disciplinas.docx
+const courseDisciplinas = [
   {
-    id: 1,
-    category: "ead",
-    title: "Fisiologia e Embriologia Reprodutiva Humana",
-    startDate: "01/03/2027",
-    endDate: "30/04/2027",
-    duration: "40 horas",
-    format: "EaD Síncrono",
-    gradient: "linear-gradient(135deg, #12386b, #4f7fc0)",
-    bgIcon: "🧬",
-    teachers: [
-      { name: "Drª. Adriana Bos Mikich", title: "Doutora · UFRGS", initials: "AB" },
-      { name: "Dr. Eduardo Chiela", title: "Doutor · UFRGS", initials: "EC" }
+    "id": 1,
+    "category": "teorica",
+    "num": "01",
+    "title": "Administração e Gerenciamento de Clínicas de Reprodução Humana Assistida",
+    "duration": "15 horas",
+    "format": "Teórica",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Adriana Bos Mikich",
+        "title": "Responsável",
+        "initials": "AB"
+      }
     ],
-    topics: [
-      "Anatomia e histologia dos sistemas reprodutores masculino e feminino",
-      "Fisiologia hormonal do ciclo menstrual e espermatogênese",
-      "Fecundação, clivagem e embriogênese inicial",
-      "Mecanismos moleculares de implantação embrionária"
+    "summary": "Fundamentos de administração aplicados a serviços de saúde de alta complexidade.",
+    "topics": [
+      {
+        "text": "Estruturas organizacionais: configurações, desenhos e governança em clínicas de reprodução humana; introdução ao gerenciamento de processos de negócio (BPM)",
+        "heading": false
+      },
+      {
+        "text": "Infraestrutura de apoio estratégico: TI (segurança de dados, sistemas e integrações) e jurídico (contratos, gestão de riscos e termos de consentimento)",
+        "heading": false
+      },
+      {
+        "text": "Gestão Financeira: interpretação de demonstrativos (DRE, balanço), precificação no mercado particular e gestão de receitas recorrentes",
+        "heading": false
+      },
+      {
+        "text": "Cultura \"AI First\": aplicação de IA generativa, RAG (Retrieval-Augmented Generation) e agentes autônomos na otimização da gestão clínica",
+        "heading": false
+      }
     ]
   },
   {
-    id: 2,
-    category: "pratica",
-    title: "Fertilização in Vitro (FIV) e Cultivo Embrionário",
-    startDate: "03/05/2027",
-    endDate: "30/06/2027",
-    duration: "50 horas",
-    format: "EaD + Prática",
-    gradient: "linear-gradient(135deg, #5f2158, #e6007e)",
-    bgIcon: "🔬",
-    teachers: [
-      { name: "Drª. Paula Rigon da Luz Soster", title: "Doutora · UFRGS", initials: "PS" },
-      { name: "Msc. Daiane Pagliarin", title: "Mestre · Nilo Frantz", initials: "DP" }
+    "id": 2,
+    "category": "pratica",
+    "num": "02",
+    "title": "Atividade Prática de Observação",
+    "duration": "45 horas",
+    "format": "Prática",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Adriana Bos-Mikich",
+        "title": "Responsável",
+        "initials": "AB"
+      },
+      {
+        "name": "Daiane Pagliarin",
+        "title": "Colaboradora",
+        "initials": "DP"
+      },
+      {
+        "name": "Gabriela Mamede Andrade",
+        "title": "Colaboradora",
+        "initials": "GM"
+      },
+      {
+        "name": "Marcelo Ferreira",
+        "title": "Colaborador",
+        "initials": "MF"
+      },
+      {
+        "name": "Marcos Iuri Roos Kulmann",
+        "title": "Colaborador",
+        "initials": "MI"
+      },
+      {
+        "name": "Norma Pagnoncelli Oliveira",
+        "title": "Colaboradora",
+        "initials": "NP"
+      },
+      {
+        "name": "Simone Mattiello",
+        "title": "Colaboradora",
+        "initials": "SM"
+      }
     ],
-    topics: [
-      "Manipulação e avaliação morfofuncional de oócitos",
-      "Inseminação convencional vs. Injeção Intracitoplasmática (ICSI)",
-      "Sistemas de cultivo embrionário e controle de qualidade de laboratório",
-      "Acompanhamento até o estágio de blastocisto"
+    "summary": "Observação supervisionada da rotina clínica e laboratorial em um centro de reprodução assistida humana, abrangendo desde a avaliação inicial dos pacientes até finalização dos tratamentos de fertilização in vitro.",
+    "topics": [
+      {
+        "text": "Acompanhamento observacional de procedimentos clínicos e laboratoriais em um serviço de reprodução humana assistida.",
+        "heading": false
+      },
+      {
+        "text": "Atividades clínicas (20h)",
+        "heading": true
+      },
+      {
+        "text": "Acompanhamento de consultas médicas iniciais e de retorno",
+        "heading": false
+      },
+      {
+        "text": "Diagnóstico de infertilidade: história clínica, exames laboratoriais e de imagem",
+        "heading": false
+      },
+      {
+        "text": "Discussão sobre direcionamento dos tratamentos de reprodução assistida (FIV, ICSI, ovodoação, preservação de fertilidade, etc.)",
+        "heading": false
+      },
+      {
+        "text": "Acompanhamento de procedimentos clínicos: ultrassonografia, punção folicular, transferência embrionária",
+        "heading": false
+      },
+      {
+        "text": "Atividades laboratoriais (20h)",
+        "heading": true
+      },
+      {
+        "text": "Acompanhamento de procedimentos: preparo seminal, manipulação de oócitos, verificação da maturidade oocitária, inseminação por injeção intracitoplasmática de espermatozoides (ICSI), cultivo embrionário e avaliação da morfologia em diferentes estágios de desenvolvimento, biópsia embrionária, criopreservação de gametas e embriões",
+        "heading": false
+      },
+      {
+        "text": "Integração e discussão crítica (5h)",
+        "heading": true
+      },
+      {
+        "text": "Reuniões com médicos e embriologistas para revisão dos casos observados",
+        "heading": false
+      },
+      {
+        "text": "Discussão das decisões clínicas e embriológicas frente aos casos acompanhados",
+        "heading": false
+      },
+      {
+        "text": "Reflexão sobre implicações éticas, legais e comunicacionais na prática reprodutiva",
+        "heading": false
+      }
     ]
   },
   {
-    id: 3,
-    category: "pratica",
-    title: "Andrologia Avançada e Processamento Seminal",
-    startDate: "01/07/2027",
-    endDate: "31/08/2027",
-    duration: "45 horas",
-    format: "EaD + Prática",
-    gradient: "linear-gradient(135deg, #0e4b68, #2a9d8f)",
-    bgIcon: "🧫",
-    teachers: [
-      { name: "Dr. Alexandre Tavares Duarte", title: "Doutor · UFRGS", initials: "AD" },
-      { name: "Msc. Marcelo Ferreira", title: "Mestre · Nilo Frantz", initials: "MF" }
+    "id": 3,
+    "category": "mista",
+    "num": "03",
+    "title": "Embriologia Aplicada à Reprodução",
+    "duration": "60 horas",
+    "format": "Teórica e prática",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Adriana Bos Mikich",
+        "title": "Responsável",
+        "initials": "AB"
+      },
+      {
+        "name": "Alexandre Tavares Duarte De Oliveira",
+        "title": "Colaborador",
+        "initials": "AT"
+      },
+      {
+        "name": "Daiane Pagliarin",
+        "title": "Colaboradora",
+        "initials": "DP"
+      },
+      {
+        "name": "Gabriela Mamede Andrade",
+        "title": "Colaboradora",
+        "initials": "GM"
+      },
+      {
+        "name": "Joao Henrique Correa Kanan",
+        "title": "Colaborador",
+        "initials": "JH"
+      },
+      {
+        "name": "Jose Artur Bogo Chies",
+        "title": "Colaborador",
+        "initials": "JA"
+      },
+      {
+        "name": "Lucas Rosa Fraga",
+        "title": "Colaborador",
+        "initials": "LR"
+      }
     ],
-    topics: [
-      "Análise seminal rigorosa (parâmetros OMS 6ª Edição)",
-      "Capacitação e técnicas de seleção espermática (Gradient/Swim-up)",
-      "Avaliação de fragmentação do DNA espermático",
-      "Automação e bioestatística em Andrologia"
+    "summary": "Embriologia básica e aspectos clínicos envolvidos com a reprodução assistida.",
+    "topics": [
+      {
+        "text": "Módulo básico:",
+        "heading": true
+      },
+      {
+        "text": "Embriologia humana clássica e histórico da fertilização e do desenvolvimento embrionário humano em laboratório",
+        "heading": false
+      },
+      {
+        "text": "Conceitos clássicos em RHA, superovulação",
+        "heading": false
+      },
+      {
+        "text": "Ciclo natural; ciclo com indução ovariana",
+        "heading": false
+      },
+      {
+        "text": "Fertilização: técnicas de inseminação em reprodução assistida",
+        "heading": false
+      },
+      {
+        "text": "Técnicas de criopreservação: congelamento e vitrificação",
+        "heading": false
+      },
+      {
+        "text": "Implantação, placentação, origem e função das membranas embrionárias e fetais",
+        "heading": false
+      },
+      {
+        "text": "Participação do sistema imune na implantação",
+        "heading": false
+      },
+      {
+        "text": "Câncer ginecológico",
+        "heading": false
+      },
+      {
+        "text": "Módulo específico:",
+        "heading": true
+      },
+      {
+        "text": "Análise de sêmen",
+        "heading": false
+      },
+      {
+        "text": "IVM de resgate e verdadeira",
+        "heading": false
+      },
+      {
+        "text": "Criopreservação de gametas e embriões (congelamento, vitrificação)",
+        "heading": false
+      },
+      {
+        "text": "Anomalias da fertilização",
+        "heading": false
+      },
+      {
+        "text": "Anomalias do desenvolvimento embrionário",
+        "heading": false
+      },
+      {
+        "text": "Emprego da tecnologia de timelapse para o monitoramento do desenvolvimento embrionário",
+        "heading": false
+      },
+      {
+        "text": "Erros de implantação",
+        "heading": false
+      },
+      {
+        "text": "Opções de gestação solo (do homem e da mulher)",
+        "heading": false
+      },
+      {
+        "text": "Adds on em RHA",
+        "heading": false
+      },
+      {
+        "text": "Mitos e verdades envolvendo a reprodução humana",
+        "heading": false
+      },
+      {
+        "text": "Classificação de gametas e embriões em laboratório",
+        "heading": false
+      }
     ]
   },
   {
-    id: 4,
-    category: "ead",
-    title: "Genética Reprodutiva e Testes Pré-Implantacionais (PGT)",
-    startDate: "01/09/2027",
-    endDate: "31/10/2027",
-    duration: "40 horas",
-    format: "EaD Síncrono",
-    gradient: "linear-gradient(135deg, #3d2645, #8338ec)",
-    bgIcon: "📊",
-    teachers: [
-      { name: "Dr. Lucas Rosa Fraga", title: "Doutor · UFRGS", initials: "LF" },
-      { name: "Drª. Maria Teresa Sanseverino", title: "Doutora · Ext", initials: "MS" }
+    "id": 4,
+    "category": "teorica",
+    "num": "04",
+    "title": "Ética e Legislação em Reprodução Humana Assistida",
+    "duration": "15 horas",
+    "format": "Teórica",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Rossana Colla Soletti",
+        "title": "Responsável",
+        "initials": "RC"
+      },
+      {
+        "name": "Adriana Bos-Mikich",
+        "title": "Colaboradora",
+        "initials": "AB"
+      }
     ],
-    topics: [
-      "Bases da citogenética e genética molecular aplicada",
-      "Indicadores e protocolo para PGT-A (Aneuploidias) e PGT-M (Monogênicas)",
-      "Técnicas de biópsia de trofectoderma",
-      "Aconselhamento genético em casais tentantes"
+    "summary": "Aspectos legais e éticos atuais relacionados à reprodução assistida.",
+    "topics": [
+      {
+        "text": "Conhecimento sobre a legislação brasileira envolvendo processos de reprodução assistida visando a discussão e comparação normas internacionais",
+        "heading": false
+      },
+      {
+        "text": "O que é a ética em Reprodução assistida?",
+        "heading": false
+      },
+      {
+        "text": "O papel do marketing no emprego das tecnologias de reprodução assistida",
+        "heading": false
+      },
+      {
+        "text": "Aspectos da comunicação com o paciente na infertilidade",
+        "heading": false
+      }
     ]
   },
   {
-    id: 5,
-    category: "pratica",
-    title: "Criopreservação de Gametas e Embriões",
-    startDate: "01/11/2027",
-    endDate: "15/12/2027",
-    duration: "40 horas",
-    format: "EaD + Prática",
-    gradient: "linear-gradient(135deg, #1b4965, #62b6cb)",
-    bgIcon: "❄️",
-    teachers: [
-      { name: "Drª. Ana Helena da Rosa Paz", title: "Doutora · UFRGS", initials: "AP" },
-      { name: "Dr. Marcos Iuri Roos Kulmann", title: "Doutor · Nilo Frantz", initials: "MK" }
+    "id": 5,
+    "category": "teorica",
+    "num": "05",
+    "title": "Exames de Imagem Aplicados à Reprodução Humana Assistida",
+    "duration": "15 horas",
+    "format": "Teórica",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Henrique Zaquia Leão",
+        "title": "Responsável",
+        "initials": "HZ"
+      },
+      {
+        "name": "Marcelo Ferreira",
+        "title": "Colaborador",
+        "initials": "MF"
+      },
+      {
+        "name": "Simone Mattiello",
+        "title": "Colaboradora",
+        "initials": "SM"
+      }
     ],
-    topics: [
-      "Física da criopreservação: Congelamento lento vs. Vitrificação",
-      "Protocolos de vitrificação e aquecimento de oócitos e blastocistos",
-      "Segurança e controle contínuo em biobancos de N2 líquido",
-      "Aspectos éticos e legais do armazenamento de embriões"
+    "summary": "Estudo dos principais exames de imagem utilizados na avaliação e no acompanhamento de pacientes em reprodução humana assistida. Ênfase na ultrassonografia transvaginal, histerossonografia, histerossalpingografia, ressonância magnética e métodos complementares. Aplicações no diagnóstico de anomalias uterinas, patologias endometriais e ovarianas, monitorização da ovulação, avaliação da reserva ovariana e suporte aos procedimentos de reprodução assistida (punção folicular, transferência embrionária). Discussão de casos clínicos integrando imagem, endocrinologia e embriologia.",
+    "topics": [
+      {
+        "text": "Patologias pélvicas na infertilidade",
+        "heading": false
+      },
+      {
+        "text": "Miomas, pólipos e sinéquias",
+        "heading": false
+      },
+      {
+        "text": "Malformações müllerianas",
+        "heading": false
+      },
+      {
+        "text": "Síndrome dos ovários policísticos",
+        "heading": false
+      },
+      {
+        "text": "Endometriose pélvica profunda",
+        "heading": false
+      },
+      {
+        "text": "Tumores ovarianos",
+        "heading": false
+      },
+      {
+        "text": "Exames funcionais",
+        "heading": false
+      },
+      {
+        "text": "Protocolos de imagem em fertilidade",
+        "heading": false
+      },
+      {
+        "text": "Contagem de folículos antrais e reserva ovariana",
+        "heading": false
+      },
+      {
+        "text": "Doppler uterino e ovariano",
+        "heading": false
+      },
+      {
+        "text": "Monitorização folicular e da ovulação",
+        "heading": false
+      },
+      {
+        "text": "Avaliação da receptividade endometrial",
+        "heading": false
+      },
+      {
+        "text": "Exames complementares",
+        "heading": false
+      },
+      {
+        "text": "Histerossalpingografia convencional e digital",
+        "heading": false
+      },
+      {
+        "text": "Histerossonografia",
+        "heading": false
+      },
+      {
+        "text": "Ressonância magnética pélvica na infertilidade",
+        "heading": false
+      },
+      {
+        "text": "Tomografia e histeroscopia virtual (situações especiais)",
+        "heading": false
+      },
+      {
+        "text": "Imagem nos procedimentos de reprodução assistida",
+        "heading": false
+      },
+      {
+        "text": "Ultrassonografia guiando a punção folicular",
+        "heading": false
+      },
+      {
+        "text": "Transferência embrionária assistida por imagem",
+        "heading": false
+      },
+      {
+        "text": "Avaliação endometrial pré e pós-transferência",
+        "heading": false
+      },
+      {
+        "text": "Imagem no congelamento e descongelamento de gametas/embriões",
+        "heading": false
+      },
+      {
+        "text": "Discussão interdisciplinar de casos clínicos",
+        "heading": false
+      }
     ]
   },
   {
-    id: 6,
-    category: "imersao",
-    title: "Imersão Prática Presencial na Clínica Nilo Frantz",
-    startDate: "10/01/2028",
-    endDate: "28/02/2028",
-    duration: "45 horas presenciais",
-    format: "Presencial · Porto Alegre",
-    gradient: "linear-gradient(135deg, #12386b, #e6007e)",
-    bgIcon: "🏥",
-    teachers: [
-      { name: "Drª. Adriana Bos Mikich", title: "Coordenadora UFRGS", initials: "AB" },
-      { name: "Esp. Simone Mattiello", title: "Especialista · Nilo Frantz", initials: "SM" }
+    "id": 6,
+    "category": "teorica",
+    "num": "06",
+    "title": "Farmacologia na Infertilidade",
+    "duration": "15 horas",
+    "format": "Teórica",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Rossana Colla Soletti",
+        "title": "Responsável",
+        "initials": "RC"
+      },
+      {
+        "name": "Marcelo Ferreira",
+        "title": "Colaborador",
+        "initials": "MF"
+      }
     ],
-    topics: [
-      "Vivência real de rotina clínica da consulta inicial ao término do ciclo",
-      "Observação guiada de punção oocitária e transferência de embriões",
-      "Acompanhamento direto em laboratório de alta complexidade",
-      "Discussão presencial de casos clínicos complexos"
+    "summary": "Aspectos laboratoriais e farmacológicos relacionado à reprodução humana assistida.",
+    "topics": [
+      {
+        "text": "Medicamentos de suporte na reprodução assistida",
+        "heading": false
+      },
+      {
+        "text": "Medicamentos que afetam a fertilidade masculina",
+        "heading": false
+      },
+      {
+        "text": "Medicamentos que interferem no desenvolvimento embrionário",
+        "heading": false
+      },
+      {
+        "text": "Contaminantes emergentes e persistentes e infertilidade",
+        "heading": false
+      },
+      {
+        "text": "Evidências científicas atuais acerca dos suplementos alimentares e infertilidade",
+        "heading": false
+      },
+      {
+        "text": "Prática baseada em evidências (PBE) na farmacoterapia da reprodução humana",
+        "heading": false
+      },
+      {
+        "text": "Orientação referente à aplicação de medicamentos na reprodução humana",
+        "heading": false
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "category": "mista",
+    "num": "07",
+    "title": "Fisiologia da Reprodução",
+    "duration": "45 horas",
+    "format": "Teórica e prática",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Eloisa Da Silveira Loss",
+        "title": "Responsável",
+        "initials": "ED"
+      },
+      {
+        "name": "Charles Francisco Ferreira",
+        "title": "Colaborador",
+        "initials": "CF"
+      }
+    ],
+    "summary": "Aspectos endócrinos relacionados à reprodução humana.",
+    "topics": [
+      {
+        "text": "Módulo básico:",
+        "heading": true
+      },
+      {
+        "text": "Papel hormonal na diferenciação sexual nos desenvolvimentos embrionários masculino e feminino.",
+        "heading": false
+      },
+      {
+        "text": "Vias de retroalimentação e controle hormonal da função reprodutiva. Eixo hipotálamo - hipófise - gônadas (masculino e feminino)",
+        "heading": false
+      },
+      {
+        "text": "Regulação hormonal no desenvolvimento testicular e de características secundárias masculinas",
+        "heading": false
+      },
+      {
+        "text": "Estrutura testicular e controle hormonal da espermatogênese.",
+        "heading": false
+      },
+      {
+        "text": "Andrógenos: síntese, transporte, conversão, metabolismo e efeitos. Efeitos dos andrógenos nas diferentes fases da vida no homem.",
+        "heading": false
+      },
+      {
+        "text": "Desenvolvimento das estruturas secundárias femininas.",
+        "heading": false
+      },
+      {
+        "text": "Desenvolvimento folicular a partir do folículo primordial até o corpo albicans.",
+        "heading": false
+      },
+      {
+        "text": "Fases ovarianas e uterinas do ciclo menstrual.",
+        "heading": false
+      },
+      {
+        "text": "Controle hormonal e os padrões de retroalimentação do ciclo menstrual às diferentes fases dos ciclos ovariano.",
+        "heading": false
+      },
+      {
+        "text": "Alterações estruturais induzidas por hormônios no endométrio - preparação para implantação e mecanismos da menstruação.",
+        "heading": false
+      },
+      {
+        "text": "Hormônios na fertilização.",
+        "heading": false
+      },
+      {
+        "text": "Mudanças endócrinas na gestação.",
+        "heading": false
+      },
+      {
+        "text": "Parto e amamentação",
+        "heading": false
+      },
+      {
+        "text": "Menopausa, e terapia hormonal pós menopausa.",
+        "heading": false
+      },
+      {
+        "text": "Módulo específico:",
+        "heading": true
+      },
+      {
+        "text": "Anovulação funcional hipotalâmica",
+        "heading": false
+      },
+      {
+        "text": "Contracepção hormonal feminina",
+        "heading": false
+      },
+      {
+        "text": "Anabolizantes na função gonadal masculina e feminina",
+        "heading": false
+      },
+      {
+        "text": "Erros de maturação oocitária/crescimento folicular",
+        "heading": false
+      },
+      {
+        "text": "Bloqueio da espermatogênese",
+        "heading": false
+      },
+      {
+        "text": "Hipogonadismo masculino",
+        "heading": false
+      },
+      {
+        "text": "Síndrome do ovário policístico (SOP)",
+        "heading": false
+      },
+      {
+        "text": "Disfunção sexual relacionada a outras doenças endócrinas: diabetes, hiper ou hipotiroidismo, estresse crônico, etc.",
+        "heading": false
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "category": "teorica",
+    "num": "08",
+    "title": "Genética Aplicada à Reprodução",
+    "duration": "45 horas",
+    "format": "Teórica",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Eduardo Cremonese Filippi Chiela",
+        "title": "Responsável",
+        "initials": "EC"
+      },
+      {
+        "name": "Marcos Iuri Roos Kulmann",
+        "title": "Colaborador",
+        "initials": "MI"
+      },
+      {
+        "name": "Maria Teresa Vieira Sanseverino",
+        "title": "Colaboradora",
+        "initials": "MT"
+      }
+    ],
+    "summary": "Genética básica e aspectos clínicos envolvidos com a reprodução. Disciplina voltada ao estudo dos fundamentos da genética aplicados à reprodução humana, com ênfase nos mecanismos moleculares e cromossômicos que influenciam a fertilidade, desenvolvimento embrionário e sucesso das técnicas de reprodução assistida. Inclui tópicos de genética básica, citogenética, testes genéticos pré e pós-implantacionais, implicações clínicas e éticas no manejo de casais inférteis.",
+    "topics": [
+      {
+        "text": "Módulo básico:",
+        "heading": true
+      },
+      {
+        "text": "1) Fundamentos de genética molecular e citogenética",
+        "heading": true
+      },
+      {
+        "text": "Estrutura e organização do DNA (gene, cromossomo, histonas, grau de compactação)",
+        "heading": false
+      },
+      {
+        "text": "Mitose e meiose (ênfase nos erros meióticos femininos e masculinos)",
+        "heading": false
+      },
+      {
+        "text": "Módulo específico:",
+        "heading": true
+      },
+      {
+        "text": "2) Alterações genéticas e reprodutivas",
+        "heading": true
+      },
+      {
+        "text": "Mutações gênicas",
+        "heading": false
+      },
+      {
+        "text": "Erros cromossômicos numéricos e estruturais, mosaicismo",
+        "heading": false
+      },
+      {
+        "text": "Relação da idade materna e paterna com erros genéticos",
+        "heading": false
+      },
+      {
+        "text": "3) Diagnóstico genético em Reprodução Assistida",
+        "heading": true
+      },
+      {
+        "text": "Testes genéticos pré-concepção (cariótipo, FISH, CGT, fragmentação do DNA espermático)",
+        "heading": false
+      },
+      {
+        "text": "Testes genéticos pré-implantacionais (PGT-A, PGT-M, PGT-SR)",
+        "heading": false
+      },
+      {
+        "text": "Testes genéticos pré-natais (líquido amniótico, vilosidades coriônicas, NIPT)",
+        "heading": false
+      },
+      {
+        "text": "Diagnósticos embrionários não-invasivos (DNA livre, metabolômica, secretoma)",
+        "heading": false
+      },
+      {
+        "text": "4) Implicações clínicas e éticas",
+        "heading": true
+      },
+      {
+        "text": "Aconselhamento genético em Reprodução Assistida",
+        "heading": false
+      },
+      {
+        "text": "Discussão de casos clínicos",
+        "heading": false
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "category": "mista",
+    "num": "09",
+    "title": "Histologia dos Sistemas Reprodutores Masculino e Feminino",
+    "duration": "30 horas",
+    "format": "Teórica e prática",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Ana Helena Da Rosa Paz",
+        "title": "Responsável",
+        "initials": "AH"
+      },
+      {
+        "name": "Eduardo Cambruzzi",
+        "title": "Colaborador",
+        "initials": "EC"
+      },
+      {
+        "name": "Lisiane Bernardi",
+        "title": "Colaboradora",
+        "initials": "LB"
+      },
+      {
+        "name": "Paula Rigon da Luz Soster",
+        "title": "Colaboradora",
+        "initials": "PR"
+      },
+      {
+        "name": "Tatiana Luft",
+        "title": "Colaboradora",
+        "initials": "TL"
+      }
+    ],
+    "summary": "Histologia dos Sistemas Reprodutores Masculino e Feminino. Patologias e/ou procedimentos dos sistemas reprodutores masculino e feminino que se relacionam à reprodução.",
+    "topics": [
+      {
+        "text": "Módulo básico:",
+        "heading": true
+      },
+      {
+        "text": "Histologia do sistema reprodutor masculino",
+        "heading": false
+      },
+      {
+        "text": "Histologia do sistema reprodutor feminino",
+        "heading": false
+      },
+      {
+        "text": "Módulo específico:",
+        "heading": true
+      },
+      {
+        "text": "Endometriose",
+        "heading": false
+      },
+      {
+        "text": "Ovários policísticos",
+        "heading": false
+      },
+      {
+        "text": "Falência ovariana precoce",
+        "heading": false
+      },
+      {
+        "text": "Síndrome de células de Sertoli",
+        "heading": false
+      },
+      {
+        "text": "Vasectomia",
+        "heading": false
+      },
+      {
+        "text": "Laqueadura",
+        "heading": false
+      },
+      {
+        "text": "Inflamações pélvicas",
+        "heading": false
+      },
+      {
+        "text": "Miomas",
+        "heading": false
+      },
+      {
+        "text": "Pólipos",
+        "heading": false
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "category": "teorica",
+    "num": "10",
+    "title": "Metodologia da Pesquisa e TCC",
+    "duration": "45 horas",
+    "format": "Teórica",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Ana Helena da Rosa Paz",
+        "title": "Responsável",
+        "initials": "AH"
+      },
+      {
+        "name": "Dirce Maria Santin",
+        "title": "Colaboradora",
+        "initials": "DM"
+      }
+    ],
+    "summary": "Estudo da metodologia científica, dos principais métodos e técnicas de investigação. Desenvolvimento do projeto de pesquisa e elaboração do trabalho de conclusão de curso (TCC), seguindo a redação científica e o template de TCC indicado pelo curso.",
+    "topics": [
+      {
+        "text": "Fundamentos da metodologia científica",
+        "heading": false
+      },
+      {
+        "text": "Métodos de pesquisa: tipos, revisão de literatura, ética e normas de referências",
+        "heading": false
+      },
+      {
+        "text": "Organização e elaboração do projeto de pesquisa para o TCC",
+        "heading": false
+      },
+      {
+        "text": "Elaboração, redação e formatação do TCC",
+        "heading": false
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "category": "mista",
+    "num": "11",
+    "title": "Origem e Anatomia dos Sistemas Reprodutores Masculino e Feminino",
+    "duration": "30 horas",
+    "format": "Teórica e prática",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Tais Malysz",
+        "title": "Responsável",
+        "initials": "TM"
+      },
+      {
+        "name": "Adriana Bos-Mikich",
+        "title": "Colaboradora",
+        "initials": "AB"
+      },
+      {
+        "name": "Henrique Zaquia Leao",
+        "title": "Colaborador",
+        "initials": "HZ"
+      }
+    ],
+    "summary": "Anatomia clínica da pelve e suas relações com peritônio. Embriologia e anatomia dos sistemas reprodutores masculino e feminino; Mal formações, patologias e procedimentos que envolvem os sistemas reprodutores masculino e feminino que se relacionam à reprodução.",
+    "topics": [
+      {
+        "text": "Módulo básico:",
+        "heading": true
+      },
+      {
+        "text": "Anatomia clínica da pelve e suas relações com peritônio.",
+        "heading": false
+      },
+      {
+        "text": "Embriologia do sistema reprodutor masculino",
+        "heading": false
+      },
+      {
+        "text": "Embriologia do sistema reprodutor feminino",
+        "heading": false
+      },
+      {
+        "text": "Anatomia do sistema reprodutor masculino",
+        "heading": false
+      },
+      {
+        "text": "Anatomia do sistema reprodutor feminino",
+        "heading": false
+      },
+      {
+        "text": "Módulo específico:",
+        "heading": true
+      },
+      {
+        "text": "Mal formações uterinas",
+        "heading": false
+      },
+      {
+        "text": "Mal formações gonadais",
+        "heading": false
+      },
+      {
+        "text": "Pseudo-hermafroditismo",
+        "heading": false
+      },
+      {
+        "text": "Problemas das glândulas anexas masculinas",
+        "heading": false
+      },
+      {
+        "text": "Impotência masculina",
+        "heading": false
+      },
+      {
+        "text": "Vasectomia/laqueadura",
+        "heading": false
+      },
+      {
+        "text": "Endometriose",
+        "heading": false
+      },
+      {
+        "text": "Varicocele",
+        "heading": false
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "category": "teorica",
+    "num": "12",
+    "title": "Preservação da Fertilidade",
+    "duration": "15 horas",
+    "format": "Teórica",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Rossana Colla Soletti",
+        "title": "Responsável",
+        "initials": "RC"
+      },
+      {
+        "name": "Adriana Bos-Mikich",
+        "title": "Colaboradora",
+        "initials": "AB"
+      }
+    ],
+    "summary": "Estudo dos métodos e técnicas atuais de preservação da fertilidade masculina e feminina. Abordagem das indicações médicas, aspectos éticos, legais e psicológicos envolvidos. Discussão de avanços em biotecnologia reprodutiva e implicações na saúde pública.",
+    "topics": [
+      {
+        "text": "Indicações clínicas da preservação da fertilidade: preservação da fertilidade social; pacientes oncológicos; transgêneros",
+        "heading": false
+      },
+      {
+        "text": "Métodos de preservação da fertilidade feminina: criopreservação de embriões; criopreservação de óvulos; criopreservação de tecido ovariano",
+        "heading": false
+      },
+      {
+        "text": "Métodos de preservação da fertilidade masculina: criopreservação de sêmen; criopreservação de tecido testicular; técnicas emergentes",
+        "heading": false
+      },
+      {
+        "text": "Aspectos éticos, legais e psicológicos; apoio psicológico ao paciente",
+        "heading": false
+      },
+      {
+        "text": "Avanços e perspectivas futuras: gametogênese in vitro; Engenharia de tecidos e células-tronco",
+        "heading": false
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "category": "teorica",
+    "num": "13",
+    "title": "Reprodução Humana Assistida voltada à população LGBTQIAPN+",
+    "duration": "15 horas",
+    "format": "Teórica",
+    "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
+    "teachers": [
+      {
+        "name": "Adriana Bos-Mikich",
+        "title": "Responsável",
+        "initials": "AB"
+      },
+      {
+        "name": "Daiane Pagliarin",
+        "title": "Colaborador",
+        "initials": "DP"
+      }
+    ],
+    "summary": "Conhecimento de exames de imagens necessários a diagnósticos e tratamentos em reprodução humana assistida.",
+    "topics": [
+      {
+        "text": "Exposição de forma inclusiva das práticas de reprodução assistida voltadas à população LGBTQIAPN+, considerando os aspectos clínicos, laboratoriais, psicossociais, éticos e legais envolvidos para casais homoafetivos e transgêneros",
+        "heading": false
+      }
     ]
   }
 ];
@@ -243,76 +1105,69 @@ if ($("testimonials-grid")) {
   `).join("");
 }
 
-// Render Course Cards
+// Render Course Cards (13 Disciplinas)
 function renderCourseCards(filter = "all") {
   const container = $("course-grid");
   if (!container) return;
 
-  const filtered = filter === "all" ? courseModules : courseModules.filter(m => m.category === filter);
+  const filtered = filter === "all" ? courseDisciplinas : courseDisciplinas.filter(m => m.category === filter);
 
   container.innerHTML = filtered.map(c => `
     <div class="course-card" tabindex="0" data-id="${c.id}">
       <div class="card-inner">
         <!-- Front of Card -->
         <div class="card-front" style="background: ${c.gradient}">
-          <div class="topic-bg-icon">${c.bgIcon}</div>
+
           <div class="card-header-badge">
             <span class="badge-format">${c.format}</span>
             <span class="badge-duration">⏱️ ${c.duration}</span>
           </div>
 
+          <div class="card-num-label">Disciplina ${c.num} de 13</div>
           <h3 class="card-title">${c.title}</h3>
-
-          <div class="card-dates-box">
-            <div class="date-item">
-              <span class="date-label">Início</span>
-              <strong>${c.startDate}</strong>
-            </div>
-            <div class="date-arrow">➔</div>
-            <div class="date-item">
-              <span class="date-label">Término</span>
-              <strong>${c.endDate}</strong>
-            </div>
-          </div>
 
           <!-- Foreground Teachers Display -->
           <div class="teacher-foreground">
-            <span class="teachers-label">Professores Responsáveis:</span>
+            <span class="teachers-label">Corpo docente:</span>
             <div class="teacher-avatars-row">
               ${c.teachers.map(t => `
                 <div class="teacher-chip" title="${t.name} (${t.title})">
                   <span class="chip-avatar">${t.initials}</span>
-                  <span class="chip-name">${t.name.split(" ")[0]} ${t.name.split(" ").slice(-1)}</span>
+                  <span class="chip-name">${t.name}</span>
                 </div>
               `).join("")}
             </div>
           </div>
 
           <div class="card-hover-hint">
-            <span>Passe o mouse ou clique para ver ementa</span>
+            <span>Ver ementa e tópicos da disciplina</span>
             <span class="hint-icon">🔄</span>
           </div>
         </div>
 
-        <!-- Back of Card (Hover / Click Detail) -->
+        <!-- Back of Card (Revealed Details) -->
         <div class="card-back">
           <div class="card-back-header">
             <div class="card-back-header-top">
-              <h4>${c.title}</h4>
+              <div>
+                <span class="back-disc-tag">Disciplina ${c.num} · ${c.duration}</span>
+                <h4>${c.title}</h4>
+              </div>
               <button type="button" class="btn-card-close" aria-label="Fechar detalhes" title="Voltar ao resumo">✕</button>
             </div>
-            <span class="back-dates">📅 ${c.startDate} até ${c.endDate}</span>
           </div>
 
           <div class="card-syllabus">
-            <h5>Programação & Tópicos:</h5>
+            <h5>Súmula</h5>
+            <p class="discipline-summary">${c.summary}</p>
+            <h5>Conteúdo programático</h5>
             <ul>
-              ${c.topics.map(tp => `<li>${tp}</li>`).join("")}
+              ${c.topics.map(tp => `<li${tp.heading ? ' class="syllabus-heading"' : ""}>${tp.text}</li>`).join("")}
             </ul>
           </div>
 
           <div class="card-teachers-detail">
-            <h5>Corpo Docente Responsável:</h5>
+            <h5>Corpo Docente:</h5>
             ${c.teachers.map(t => `
               <div class="t-detail-item">
                 <span class="t-avatar-sm">${t.initials}</span>
@@ -324,9 +1179,7 @@ function renderCourseCards(filter = "all") {
             `).join("")}
           </div>
 
-          <div class="card-action-bar">
-            <a href="#contato" class="btn btn-sm btn-card-action">Garantir Vaga no Curso</a>
-          </div>
+
         </div>
       </div>
     </div>
