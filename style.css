@@ -279,3 +279,10 @@ footer p{flex:1;min-width:240px;color:var(--muted);font-size:.9rem}
 .teacher-chip{max-width:100%}
 .course-card:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.card-inner{transition:none}}
+
+/* Only the visible card face receives pointer input, including wheel scrolling. */
+.card-back{pointer-events:none;touch-action:pan-y}
+.course-card:is(:hover,.flipped,:focus-visible) .card-front{pointer-events:none}
+.course-card:is(:hover,.flipped,:focus-visible) .card-back{pointer-events:auto}
+.teacher-photo{object-fit:cover;object-position:center;flex-shrink:0}
+[data-teacher]{display:flex;align-items:center;gap:10px}

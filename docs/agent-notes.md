@@ -5,5 +5,9 @@
 - Registration is a browser-only test. Online form review prepares a downloadable HTML file; email links open an email client with a subject only. Users attach files and send manually. Never report an application as sent from this workflow.
 - Test recipient is `ludpher.s@gmail.com`, present in the registration HTML pages. Replace all occurrences and remove test labels only when a production workflow is approved. Applicant data is not persisted or placed in mailto URLs.
 - Public blank form: `assets/registration/formulario-inscricao.docx`, copied byte-for-byte from the supplied registration DOCX. Keep this public copy synchronized with approved source changes.
-- Preview using `python3 -m http.server 8000` from the repository root, then open `/inscricao.html`. Focused static checks: `python3 tests/check_registration.py`; also run `git diff --check`. Browser verification is separate from these checks.
+- Preview using `python3 -m http.server 8000` from the repository root, then open `/inscricao.html`. Focused static checks: `python3 tests/check_registration.py` and `python3 tests/check_profiles.py`; also run `git diff --check`. Browser verification is separate from these checks.
 - Commit completed changes; do not push unless explicitly requested. Stage only task changes: pre-existing edits may share `index.html`, `app.js`, and `style.css`.
+
+- Faculty photos: `assets/profiles/<slug>.png`; `profileSlug` in `app.js` removes accents and punctuation and joins lowercase words with hyphens. Use `teacherPhoto` for generated faculty displays, and `data-teacher` for static coordinator/contact names. Photos are resized to at most 168px for the 22–42px displays. Photo filenames correct the supplied Norma surname typo to Pagnoncelli.
+- Card back faces scroll as a whole. Keep pointer events disabled on the hidden face so the front does not intercept wheel/touch input after rotation. Space scrolls an already open card; Enter toggles it.
+- `wordpress-migration/README.md` reflects the corrected discipline inventory and the browser-only test registration paths. Target UFRGS permissions and the production submission channel remain unresolved.

@@ -1,6 +1,7 @@
 # UFRGS WordPress migration plan
 
 Prepared: 9 October 2026
+Reviewed against the current implementation: 13 October 2026
 
 ## Recommendation
 
@@ -17,7 +18,7 @@ This is a planning document. No migration has been implemented.
 - `../new-documents/Informações sobre as disciplinas.docx`: supplied discipline information.
 - `../new-documents/Formulário de inscrição.docx`: supplied registration form.
 
-The current website is a static HTML/CSS/JavaScript landing page. It has no application backend or database. Registration buttons lead to a contact section and email link; they do not submit applications.
+The current website is a static HTML/CSS/JavaScript landing page. It has no application backend or database. Registration buttons lead to `inscricao.html`, which offers a downloadable DOCX/instructions path and a browser-only form path that prepares a printable application. Both are explicitly test workflows; users attach the application and email it manually. Neither submits applications to a backend. See `../registration-page-plan/README.md`.
 
 ## 1. Confirm the target WordPress environment
 
@@ -60,7 +61,7 @@ Deliverable: a complete editable draft with all essential content visible withou
 - Adapt page width, section spacing, typography, and responsive columns to the active theme.
 - Use the theme's header and mobile navigation where suitable, and avoid duplicate institutional branding.
 - Retain section anchors and adjust their scroll offsets for the actual sticky header and WordPress administration bar.
-- Upload logos and downloadable documents to the Media Library; replace relative `assets/…` paths with appropriate WordPress asset URLs.
+- Upload logos, faculty photos from `assets/profiles/`, and downloadable documents to the Media Library; replace relative `assets/…` paths with appropriate WordPress asset URLs.
 - Set the page title, description, and site icon through available WordPress/theme settings rather than copying the original document's `<head>` into page content.
 - Use theme fonts, or locally hosted fonts if permitted, in place of the current external Google Fonts dependency.
 
@@ -84,14 +85,14 @@ Deliverable: an agreed feature set that works within the target environment's pe
 
 ## 5. Reconcile content before migration
 
-The supplied discipline document differs materially from the current website. Examples:
+All 13 discipline cards were reconciled with the supplied discipline document on 9 October 2026. They total 390 hours: eight theoretical, four theoretical/practical, and one practical discipline. Preserve this corrected inventory; the earlier 35-hour Embriologia and 20-hour Administração values are obsolete.
 
-| Discipline | Current website | Supplied discipline document |
-| --- | --- | --- |
-| Embriologia Aplicada à Reprodução | 35 hours | 60 hours |
-| Administração e Gerenciamento de Clínicas de Reprodução Humana Assistida | 20 hours | 15 hours |
+Remaining content decisions:
 
-Teacher assignments also differ. Review all 13 disciplines, syllabus text, responsible and collaborating teachers, theoretical/practical classifications, and total hours against the approved course information. Do not assume that every current card is authoritative or that the supplied document automatically supersedes all other sources.
+- Confirm the LGBTQIAPN+ discipline's súmula, which describes imaging exams while its program discusses inclusive reproduction. The site preserves the source wording.
+- Confirm the homepage's 309h theoretical / 81h practical split; the discipline document does not allocate mixed-discipline hours.
+- Confirm faculty qualifications and affiliations independently of discipline responsibilities. Profile filenames are sanitized ASCII slugs; keep the identity mapping and photographs consistent in cards, faculty lists, and coordinator/contact displays.
+- Preserve the updated secretary telephone `(51) 98618-7964` and `tel:+5551986187964`.
 
 Clarify payment terms: the page advertises 15 installments while the credit-card badge says “até 12x.” Confirm the advertised PIX discount and payment methods against the approved terms.
 
@@ -104,9 +105,9 @@ Choose the approved application process:
 - Publish the supplied registration document as a download, with clear instructions on where and how to submit it; or
 - Link to the university's approved application system.
 
-Make the registration buttons lead to those instructions or that system. Keep general contact information available separately.
+The current registration buttons already lead to the test registration chooser. Replace the test destination/workflows with the approved instructions or system before production launch. Keep general contact information available separately.
 
-Building an online application form is additional functionality. It would require an approved mechanism for handling applicant data, supporting documents, access permissions, and submission confirmations. The existing website does not provide this functionality.
+Building an online application form is additional functionality. It would require an approved mechanism for handling applicant data, supporting documents, access permissions, and submission confirmations. The existing online test form only prepares a downloadable file and does not provide backend submission. Replace `ludpher.s@gmail.com` with the approved recipient and remove test notices only after the production process is confirmed.
 
 Deliverable: an unambiguous route from “Inscreva-se” to the approved application process.
 

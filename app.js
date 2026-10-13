@@ -12,7 +12,7 @@ const courseDisciplinas = [
     "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
     "teachers": [
       {
-        "name": "Adriana Bos Mikich",
+        "name": "Adriana Bos-Mikich",
         "title": "Responsável",
         "initials": "AB"
       }
@@ -144,12 +144,12 @@ const courseDisciplinas = [
     "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
     "teachers": [
       {
-        "name": "Adriana Bos Mikich",
+        "name": "Adriana Bos-Mikich",
         "title": "Responsável",
         "initials": "AB"
       },
       {
-        "name": "Alexandre Tavares Duarte De Oliveira",
+        "name": "Alexandre Tavares Duarte de Oliveira",
         "title": "Colaborador",
         "initials": "AT"
       },
@@ -164,12 +164,12 @@ const courseDisciplinas = [
         "initials": "GM"
       },
       {
-        "name": "Joao Henrique Correa Kanan",
+        "name": "João Henrique Correa Kanan",
         "title": "Colaborador",
         "initials": "JH"
       },
       {
-        "name": "Jose Artur Bogo Chies",
+        "name": "José Artur Bogo Chies",
         "title": "Colaborador",
         "initials": "JA"
       },
@@ -490,7 +490,7 @@ const courseDisciplinas = [
     "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
     "teachers": [
       {
-        "name": "Eloisa Da Silveira Loss",
+        "name": "Eloisa da Silveira Loss",
         "title": "Responsável",
         "initials": "ED"
       },
@@ -707,7 +707,7 @@ const courseDisciplinas = [
     "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
     "teachers": [
       {
-        "name": "Ana Helena Da Rosa Paz",
+        "name": "Ana Helena da Rosa Paz",
         "title": "Responsável",
         "initials": "AH"
       },
@@ -838,7 +838,7 @@ const courseDisciplinas = [
     "gradient": "linear-gradient(135deg, #12386b, #3f6ca8)",
     "teachers": [
       {
-        "name": "Tais Malysz",
+        "name": "Taís Malysz",
         "title": "Responsável",
         "initials": "TM"
       },
@@ -848,7 +848,7 @@ const courseDisciplinas = [
         "initials": "AB"
       },
       {
-        "name": "Henrique Zaquia Leao",
+        "name": "Henrique Zaquia Leão",
         "title": "Colaborador",
         "initials": "HZ"
       }
@@ -1016,7 +1016,7 @@ const subjects = [
 ];
 
 const teamUfrgs = [
-  ["Adriana Bos Mikich", "Doutora · Coordenadora"],
+  ["Adriana Bos-Mikich", "Doutora · Coordenadora"],
   ["Paula Rigon da Luz Soster", "Doutora · Coord. Adjunta"],
   ["Alexandre Tavares Duarte de Oliveira", "Doutor"],
   ["Ana Helena da Rosa Paz", "Doutora"],
@@ -1030,7 +1030,7 @@ const teamUfrgs = [
   ["José Artur Bogo Chies", "Doutor"],
   ["Lisiane Bernardi", "Doutora"],
   ["Lucas Rosa Fraga", "Doutor"],
-  ["Rossana Colla Solette", "Doutora"],
+  ["Rossana Colla Soletti", "Doutora"],
   ["Taís Malysz", "Doutora"],
   ["Tatiana Luft", "Doutora"]
 ];
@@ -1079,9 +1079,18 @@ if ($("subjects")) {
     `<li${i === subjects.length - 1 ? ' class="practical"' : ""}>${t}</li>`).join("");
 }
 
+// Profile filenames use lowercase ASCII slugs, shared across every faculty display.
+const profileSlug = name => name.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+const teacherPhoto = (name, className) => `<img class="${className} teacher-photo" src="assets/profiles/${profileSlug(name)}.png" alt="" loading="lazy" decoding="async">`;
+
+document.querySelectorAll("[data-teacher]").forEach(element => {
+  element.insertAdjacentHTML("afterbegin", teacherPhoto(element.dataset.teacher, "avatar"));
+});
+
 // Render team
 const person = ([n, t]) => `<li>
-  <span class="avatar">${n.split(" ").filter(w => w[0] === w[0].toUpperCase()).map(w => w[0]).slice(0, 2).join("")}</span>
+  ${teacherPhoto(n, "avatar")}
   <div><strong>${n}</strong><span>${t}</span></div>
 </li>`;
 
@@ -1132,7 +1141,7 @@ function renderCourseCards(filter = "all") {
             <div class="teacher-avatars-row">
               ${c.teachers.map(t => `
                 <div class="teacher-chip" title="${t.name} (${t.title})">
-                  <span class="chip-avatar">${t.initials}</span>
+                  ${teacherPhoto(t.name, "chip-avatar")}
                   <span class="chip-name">${t.name}</span>
                 </div>
               `).join("")}
@@ -1170,7 +1179,7 @@ function renderCourseCards(filter = "all") {
             <h5>Corpo Docente:</h5>
             ${c.teachers.map(t => `
               <div class="t-detail-item">
-                <span class="t-avatar-sm">${t.initials}</span>
+                ${teacherPhoto(t.name, "t-avatar-sm")}
                 <div>
                   <strong>${t.name}</strong>
                   <span class="t-title-sm">${t.title}</span>
@@ -1206,7 +1215,8 @@ function renderCourseCards(filter = "all") {
 
     // Keyboard support
     card.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
+      if (e.target !== card) return;
+      if (e.key === "Enter" || (e.key === " " && !card.matches(":hover, .flipped"))) {
         if (e.target.tagName !== "A" && !e.target.closest("a")) {
           e.preventDefault();
           card.classList.toggle("flipped");
