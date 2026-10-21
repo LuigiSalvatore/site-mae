@@ -7,8 +7,29 @@
   let application = '';
   form.querySelector('button[type="submit"]').disabled = false;
 
+  // Text inputs keep the displayed format independent of browser locale.
+  const dateInputs = form.querySelectorAll('[data-date]');
+  const validateDate = input => {
+    const value = input.value.trim();
+    const parts = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(value);
+    let valid = !value;
+    if (parts) {
+      const [, day, month, year] = parts.map(Number);
+      const date = new Date(0);
+      date.setUTCFullYear(year, month - 1, day);
+      valid = year > 0 && date.getUTCFullYear() === year &&
+        date.getUTCMonth() === month - 1 && date.getUTCDate() === day;
+    }
+    input.setCustomValidity(valid ? '' : 'Informe uma data válida no formato dd/mm/yyyy.');
+  };
+  dateInputs.forEach(input => {
+    input.addEventListener('input', () => validateDate(input));
+    validateDate(input);
+  });
+
   form.addEventListener('submit', event => {
     event.preventDefault();
+    dateInputs.forEach(validateDate);
     if (!form.reportValidity()) return;
     const lines = [
       'Especialização em Tecnologias da Reprodução Assistida e Embriologia Humanas',
@@ -24,7 +45,6 @@
         const label = form.querySelector(`label[for="${input.id}"]`);
         const title = label.textContent.replace(/\s*\*\s*$/, '').trim();
         let value = input.value.trim();
-        if (input.type === 'date' && value) value = value.split('-').reverse().join('/');
         lines.push(title + ': ' + (value || '—'));
       });
       lines.push('');

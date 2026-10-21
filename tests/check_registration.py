@@ -60,6 +60,18 @@ class RegistrationChecks(unittest.TestCase):
                          'mestrado', 'doutorado', 'trabalho', 'cartao', 'lotacao', 'data_declaracao'} <= names)
         self.assertEqual(len(inputs), 47)
 
+    def test_dates_have_explicit_day_first_format(self):
+        inputs = [a for tag, a in Page(ROOT / 'inscricao-online.html').tags
+                  if tag == 'input' and a.get('name') in {'nascimento', 'data_declaracao'}]
+        self.assertEqual(len(inputs), 2)
+        for attrs in inputs:
+            self.assertEqual(attrs['type'], 'text')
+            self.assertEqual(attrs['placeholder'], 'dd/mm/yyyy')
+            self.assertIn('data-date', attrs)
+        homepage = (ROOT / 'index.html').read_text()
+        self.assertIn('12/02/2027 a 12/03/2027', homepage)
+        self.assertNotIn('Março de 2027', homepage)
+
     def test_email_links_do_not_include_applicant_data(self):
         for name in PAGES:
             html = (ROOT / name).read_text()
