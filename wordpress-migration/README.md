@@ -20,7 +20,7 @@ This is a planning document. No migration has been implemented.
 - `../new-documents/Informações sobre as disciplinas.docx`: supplied discipline information.
 - `../new-documents/Formulário de inscrição.docx`: supplied registration form.
 
-The current website is a static HTML/CSS/JavaScript landing page. It has no application backend or database. Registration buttons lead to `inscricao.html`, which offers a downloadable DOCX/instructions path and a browser-only form path that prepares a printable application. Both are explicitly test workflows; users attach the application and email it manually. Neither submits applications to a backend. See `../registration-page-plan/README.md`.
+The current website is a static HTML/CSS/JavaScript landing page. It has no application backend or database. Registration buttons lead to `inscricao.html`, which offers a downloadable DOCX/instructions path and a browser-only form path that prepares a printable application. Both require users to sign the document and email it manually to `especializacaorha@ufrgs.br`. Neither submits applications to a backend. See `../registration-page-plan/README.md`.
 
 ## 1. Confirm the target WordPress environment
 
@@ -107,9 +107,9 @@ Choose the approved application process:
 - Publish the supplied registration document as a download, with clear instructions on where and how to submit it; or
 - Link to the university's approved application system.
 
-The current registration buttons already lead to the test registration chooser. Replace the test destination/workflows with the approved instructions or system before production launch. Keep general contact information available separately.
+The current registration buttons already lead to the registration chooser, with PDF generation online and manual email submission. Keep general contact information available separately.
 
-Building an online application form is additional functionality. It would require an approved mechanism for handling applicant data, supporting documents, access permissions, and submission confirmations. The existing online test form only prepares a downloadable file and does not provide backend submission. Replace `ludpher.s@gmail.com` with the approved recipient and remove test notices only after the production process is confirmed.
+Building an online application form is additional functionality. It would require an approved mechanism for handling applicant data, supporting documents, access permissions, and submission confirmations. The existing online form prepares a PDF and does not provide backend submission. Applicants must sign and email it to the confirmed recipient `especializacaorha@ufrgs.br`.
 
 Deliverable: an unambiguous route from “Inscreva-se” to the approved application process.
 

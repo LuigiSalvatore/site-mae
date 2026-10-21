@@ -28,7 +28,7 @@ The supplied document collects identification details and selection categories. 
 3. Registration period: display the approved dates consistently with the homepage. Use a clear notice before opening and after closing; do not rely solely on the visitor's device clock to enforce online submissions.
 4. “Como se inscrever”: numbered steps to download, complete, and submit the form through the confirmed channel. List attachments only after the course team confirms them.
 5. “Formulário de inscrição”: download the supplied DOCX with its file type clearly labeled. Add an accessible PDF version if approved, after checking that all fields and declarations are preserved.
-6. Submission action: link to the approved university application system, or provide approved email instructions. The existing secretary email is `especializacaorha@ufrgs.br`; verify that it is authorized to receive applications and supporting documents before directing submissions there.
+6. Submission action: link to the approved university application system, or provide approved email instructions. The confirmed submission email is `especializacaorha@ufrgs.br`.
 7. Help: secretary contact details and a link back to the course information.
 
 ## If an online form is preferred
@@ -84,18 +84,13 @@ The discipline cards no longer contain signup buttons after their source-only co
 
 Approve either the recommended instructions/download page or a directly submitted online form. For the recommended version, confirm the receiving channel, required supporting documents, and registration instructions. For an online form, resolve the decisions above before implementation.
 
-Both paths and homepage signup links are now implemented for testing. See the implementation notes below.
+## Current registration workflow
 
-
-## Implemented test paths
-
-- `../inscricao.html`: choice between the two registration paths.
-- `../inscricao-online.html`: all source form fields, in-browser review, and download of a completed printable HTML application.
-- `../inscricao-instrucoes.html`: original DOCX download and manual email instructions.
-- Both paths use `ludpher.s@gmail.com` for tests. No message is sent automatically. The user must attach the application and send it from their own email client.
-- The form requires only name and personal email to prepare a test file. This is a prototype choice, not an official requirement. The source checkboxes remain checkboxes pending confirmation of the category rule.
-- The original declaration and signature line are preserved; the prototype does not claim to provide an approved electronic signature.
-- The test pages are labeled as tests and use `noindex`. They remain usable outside the official application dates for testing.
-- No applicant data is saved by the site, included in email URLs, or transmitted to a backend.
-
-An automated online submission path still requires an approved backend/service and confirmed application, signature, and data handling rules before production use. The earlier planning sections describe the production decisions that remain open.
+- `../inscricao.html` offers online completion or original DOCX download.
+- `../inscricao-online.html` preserves all source fields and the declaration, offers review, and downloads a paginated PDF named `<normalized-full-name>_formulario-inscricao.pdf` (for example `ana-silva_formulario-inscricao.pdf`).
+- `../inscricao-instrucoes.html` provides the original DOCX and manual email instructions.
+- Regardless of the completion method, applicants must sign the document and email it to `especializacaorha@ufrgs.br`, as confirmed on 21 October 2026.
+- Only name and personal email are required to prepare the PDF; this does not define selection eligibility. Source category checkboxes are preserved.
+- Nothing is submitted automatically or saved by the site; email links contain only a subject. No electronic signature is applied by the site.
+- `registration-pdf.js` renders text locally on canvas and packages page images as PDF without external libraries or network requests. The PDF is rasterized; the on-page review provides the text version.
+- Run `python3 tests/check_registration.py`, `gjs tests/check_registration_pdf.js`, and `python3 tests/check_profiles.py` for focused checks.

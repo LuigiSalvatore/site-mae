@@ -3,7 +3,7 @@
 .registration-header>a:last-child,.registration-nav a{color:var(--navy);font-weight:600;text-underline-offset:4px}
 .registration-main{padding-top:24px;padding-bottom:80px;max-width:1000px}
 .registration-nav{display:flex;flex-wrap:wrap;gap:12px 24px;margin-bottom:24px}
-.test-notice{padding:16px 20px;border:1px solid var(--lav);border-left:4px solid var(--plum);background:var(--mist);border-radius:8px;margin-bottom:36px;overflow-wrap:anywhere}
+.submission-notice{padding:16px 20px;border:1px solid var(--lav);border-left:4px solid var(--plum);background:var(--mist);border-radius:8px;margin-bottom:36px;overflow-wrap:anywhere}
 .registration-page h1{font-size:clamp(2rem,5vw,3.2rem);max-width:24ch;margin-bottom:20px}
 .registration-lead{font-size:1.15rem;color:var(--muted);margin-bottom:32px;max-width:65ch}
 .registration-options{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}

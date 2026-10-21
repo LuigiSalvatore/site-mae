@@ -1,4 +1,4 @@
-/* Browser-only test: prepare a file; delivery happens in the user's email client. */
+/* Prepare a PDF locally; delivery happens in the user's email client. */
 (() => {
   const form = document.getElementById('registration-form');
   if (!form) return;
@@ -6,15 +6,11 @@
   const content = document.getElementById('review-content');
   let application = '';
   form.querySelector('button[type="submit"]').disabled = false;
-  const escapeHtml = value => value.replace(/[&<>"']/g, character => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
-  })[character]);
 
   form.addEventListener('submit', event => {
     event.preventDefault();
     if (!form.reportValidity()) return;
     const lines = [
-      'APLICAÇÃO DE TESTE — NÃO CONFIRMA INSCRIÇÃO OFICIAL',
       'Especialização em Tecnologias da Reprodução Assistida e Embriologia Humanas',
       'FORMULÁRIO DE INSCRIÇÃO', ''
     ];
@@ -36,7 +32,7 @@
     lines.push(document.getElementById('declaration-text').textContent,
       '', 'Porto Alegre', '', 'Assinatura: _____________________________________________');
     application = lines.join('\n');
-    // Use textContent for personal input; downloaded markup is escaped separately.
+    // Keep personal input as plain text in the review.
     content.textContent = application;
     form.hidden = true;
     review.hidden = false;
@@ -51,17 +47,10 @@
 
   document.getElementById('download-application').addEventListener('click', () => {
     if (!application) return;
-    const documentHtml = '<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">' +
-      '<meta name="viewport" content="width=device-width, initial-scale=1">' +
-      '<title>Aplicação preenchida — teste</title>' +
-      '<style>body{max-width:800px;margin:32px auto;padding:0 20px;font-family:Arial,sans-serif}' +
-      'pre{white-space:pre-wrap;overflow-wrap:anywhere;font:14px/1.6 Arial,sans-serif}' +
-      '@media print{body{margin:0;max-width:none}}</style></head><body><pre>' +
-      escapeHtml(application) + '</pre></body></html>';
-    const url = URL.createObjectURL(new Blob([documentHtml], {type: 'text/html;charset=utf-8'}));
+    const url = URL.createObjectURL(new Blob([RegistrationPDF.create(application)], {type: 'application/pdf'}));
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'aplicacao-preenchida-teste.html';
+    link.download = RegistrationPDF.filename(document.getElementById('nome').value);
     document.body.appendChild(link);
     link.click();
     link.remove();

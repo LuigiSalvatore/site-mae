@@ -60,14 +60,15 @@ class RegistrationChecks(unittest.TestCase):
                          'mestrado', 'doutorado', 'trabalho', 'cartao', 'lotacao', 'data_declaracao'} <= names)
         self.assertEqual(len(inputs), 47)
 
-    def test_test_email_links_do_not_include_applicant_data(self):
+    def test_email_links_do_not_include_applicant_data(self):
         for name in PAGES:
             html = (ROOT / name).read_text()
-            self.assertIn('Versão de teste.', html)
+            self.assertNotIn('teste', html.lower())
+            self.assertIn('assine o documento antes de enviar', html.lower())
             for tag, attrs in Page(ROOT / name).tags:
                 url = urlsplit(attrs.get('href', ''))
                 if url.scheme == 'mailto':
-                    self.assertEqual(url.path, 'ludpher.s@gmail.com')
+                    self.assertEqual(url.path, 'especializacaorha@ufrgs.br')
                     self.assertTrue(set(parse_qs(url.query)) <= {'subject'})
 
     def test_no_javascript_cannot_submit_personal_data_in_url(self):
