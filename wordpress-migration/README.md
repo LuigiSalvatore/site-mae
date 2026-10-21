@@ -1,5 +1,7 @@
 # UFRGS WordPress migration plan
 
+> Atualização em 19/10/2026: com o acesso SFTP informado, o plano principal é publicar o site estático existente. Consulte [o plano de hospedagem HTML](../docs/plano-migracao-ufrgs.md). Este documento fica como alternativa para uma futura exigência de WordPress.
+
 Prepared: 9 October 2026
 Reviewed against the current implementation: 13 October 2026
 

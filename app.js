@@ -999,22 +999,6 @@ const specific = [
   "Oportunizar a observação de atividades laboratoriais práticas de preparo de material seminal para exame de rotina para emprego nas diferentes técnicas de inseminação/fertilização."
 ];
 
-const subjects = [
-  "Origem e Anatomia dos Sistemas Reprodutores Masculino e Feminino",
-  "Histologia dos Sistemas Reprodutores Masculino e Feminino",
-  "Fisiologia da Reprodução",
-  "Embriologia Aplicada à Reprodução",
-  "Genética Aplicada à Reprodução",
-  "Farmacologia na Infertilidade",
-  "Exames de Imagem Aplicados à Reprodução Humana Assistida",
-  "Preservação da Fertilidade",
-  "Reprodução Humana Assistida voltada à população LGBTQIAPN+",
-  "Ética e Legislação em Reprodução Humana Assistida",
-  "Administração e Gerenciamento de Clínicas de Reprodução Humana Assistida",
-  "Metodologia da Pesquisa e TCC",
-  "Atividade Prática de Observação"
-];
-
 const teamUfrgs = [
   ["Adriana Bos-Mikich", "Doutora · Coordenadora"],
   ["Paula Rigon da Luz Soster", "Doutora · Coord. Adjunta"],
@@ -1045,38 +1029,11 @@ const teamExt = [
   ["Simone Mattiello", "Especialista · Nilo Frantz"]
 ];
 
-const testimonials = [
-  {
-    name: "Drª. Camile Mendonça",
-    role: "Biomédica Embriologista",
-    text: "A imersão prática na Clínica Nilo Frantz foi o diferencial divisor de águas na minha carreira. Ver a rotina real de um laboratório de RHA de alta precisão não tem preço.",
-    avatar: "CM"
-  },
-  {
-    name: "Juliano Silveira",
-    role: "Biólogo & Pesquisador",
-    text: "O corpo docente da UFRGS traz fundamentação científica de altíssimo nível. Recomendo fortemente para quem deseja se posicionar com autoridade em Reprodução Assistida.",
-    avatar: "JS"
-  },
-  {
-    name: "Mariana Alencar",
-    role: "Farmacêutica",
-    text: "O formato híbrido com EaD síncrono e aulas presenciais permitiu conciliar o trabalho com uma formação de referência nacional.",
-    avatar: "MA"
-  }
-];
-
 const $ = id => document.getElementById(id);
 
 // Render specific objectives
 if ($("specific")) {
   $("specific").innerHTML = specific.map(t => `<li>${t}</li>`).join("");
-}
-
-// Render legacy subjects list
-if ($("subjects")) {
-  $("subjects").innerHTML = subjects.map((t, i) =>
-    `<li${i === subjects.length - 1 ? ' class="practical"' : ""}>${t}</li>`).join("");
 }
 
 // Profile filenames use lowercase ASCII slugs, shared across every faculty display.
@@ -1096,23 +1053,6 @@ const person = ([n, t]) => `<li>
 
 if ($("team-ufrgs")) $("team-ufrgs").innerHTML = teamUfrgs.map(person).join("");
 if ($("team-ext")) $("team-ext").innerHTML = teamExt.map(person).join("");
-
-// Render Testimonials
-if ($("testimonials-grid")) {
-  $("testimonials-grid").innerHTML = testimonials.map(t => `
-    <div class="testimonial-card">
-      <div class="test-header">
-        <div class="test-avatar">${t.avatar}</div>
-        <div>
-          <strong>${t.name}</strong>
-          <span>${t.role}</span>
-        </div>
-      </div>
-      <p class="test-text">"${t.text}"</p>
-      <div class="test-rating">★★★★★</div>
-    </div>
-  `).join("");
-}
 
 // Render Course Cards (13 Disciplinas)
 function renderCourseCards(filter = "all") {
